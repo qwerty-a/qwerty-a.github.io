@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | qwerty-a&#39;s blog</title>
+  <title>手动注入 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="���ϿƼ���ѧ2017��">
-<meta name="keywords" content="ctf���Źܣ���Ӱ�����֣�c++">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qwerty-a&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="1.测试是否可以注入，可以用布尔监测。几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；table_nameinformation_schema.tabletable_schemacolumn_nameinformation_schema.columns1’ union//select/table_">
+<meta name="keywords" content="ctf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手动注入">
+<meta property="og:url" content="http://yoursite.com/2018/12/12/手动注入/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="���ϿƼ���ѧ2017��">
+<meta property="og:description" content="1.测试是否可以注入，可以用布尔监测。几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；table_nameinformation_schema.tabletable_schemacolumn_nameinformation_schema.columns1’ union//select/table_">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-12T13:11:06.021Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qwerty-a&#39;s blog">
-<meta name="twitter:description" content="���ϿƼ���ѧ2017��">
+<meta name="twitter:title" content="手动注入">
+<meta name="twitter:description" content="1.测试是否可以注入，可以用布尔监测。几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；table_nameinformation_schema.tabletable_schemacolumn_nameinformation_schema.columns1’ union//select/table_">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -158,36 +159,66 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-手动注入" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      手动注入
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/12/手动注入/" class="archive-article-date">
+
+        
+        <a href="/2018/12/12/手动注入/" class="archive-article-date">
   	<time datetime="2018-12-12T13:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/12/手动注入/">手动注入</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-测试是否可以注入，可以用布尔监测。"><a href="#1-测试是否可以注入，可以用布尔监测。" class="headerlink" title="1.测试是否可以注入，可以用布尔监测。"></a>1.测试是否可以注入，可以用布尔监测。</h2><p>几个常用的函数：<br>user()返回当前数据库连接使用的用户；<br>database()返回当前数据库连接使用的数据库；<br>version()返回当前数据库的版本；<br><--more--><br>table_name<br>information_schema.table<br>table_schema<br>column_name<br>information_schema.columns<br>1’ union/<strong>/select/</strong>table_name/<strong>/from/</strong>/information_schema.tables/<strong>/where/</strong>/‘1’=’1<br>1’ union/<strong>/select/</strong>/column_name/<strong>/information_schema.columnsa.columns/</strong>/where/<strong>/table_name=’flag<br>1’ union/</strong>/select/<strong>/column_namcolumn_namee/</strong>/from/<strong>/information_scheminformation_schema.columnsa.columns/</strong>/where/<strong>/table_name=’flag<br>1’ union/</strong>/select/<strong>/column_name/</strong>/from/<strong>/information_schema.columns/</strong>/where/**/table_name=’flag<br>concat或者concat-ws函数可以将这些函数进行组合使用并显示出来。concat函数中，将其中的参数直接连接起来产生新的字符串。而在concat_ws函数中，第一个参数是用于作为分隔符将后面各个参数的内容分隔开来再进行相应的连接产生新的字符串。以其常用的例子为例：<br>concat_ws(char(32,58,32),user(),database(),version())其中char()函数为将里面的参数转化为相应的字符，其中32为空格，58为冒号(:)，通过这样的方式可以绕过一些简单的过滤机制。</--more--></p>
+<h2 id="2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"><a href="#2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息" class="headerlink" title="2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"></a>2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息</h2><h2 id="3-查询所有的表名"><a href="#3-查询所有的表名" class="headerlink" title="3.查询所有的表名"></a>3.查询所有的表名</h2><h2 id="4-直接对其进行进一步的查询，查看其所有的列名"><a href="#4-直接对其进行进一步的查询，查看其所有的列名" class="headerlink" title="4.直接对其进行进一步的查询，查看其所有的列名"></a>4.直接对其进行进一步的查询，查看其所有的列名</h2><h2 id="5-直接查询数据"><a href="#5-直接查询数据" class="headerlink" title="5.直接查询数据"></a>5.直接查询数据</h2>
+      
 
-        <div class="article-info info-on-right">
-          
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfb.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -199,84 +230,119 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/12/手动注入/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/12/sqlmap简单使用和dwna/" class="archive-article-date">
-  	<time datetime="2018-12-12T12:49:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/12/sqlmap简单使用和dwna/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">sqlmap简单使用和dwna</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/12/sqlmap简单使用和dwna/">sqlmap简单使用和dwna</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-测试是否可以注入，可以用布尔监测。"><span class="toc-number">1.</span> <span class="toc-text">1.测试是否可以注入，可以用布尔监测。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"><span class="toc-number">2.</span> <span class="toc-text">2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-查询所有的表名"><span class="toc-number">3.</span> <span class="toc-text">3.查询所有的表名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-直接对其进行进一步的查询，查看其所有的列名"><span class="toc-number">4.</span> <span class="toc-text">4.直接对其进行进一步的查询，查看其所有的列名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-直接查询数据"><span class="toc-number">5.</span> <span class="toc-text">5.直接查询数据</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/12/hello-world/" class="archive-article-date">
-  	<time datetime="2018-12-12T09:00:41.002Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/12/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -299,8 +365,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

