@@ -345,25 +345,34 @@
 
 
 
-  <!-- ������City�氲װ���� -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80MTYzNy8xODE4Mw==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
 
-       if (typeof LivereTower === 'function') { return; }
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "DUcsuhSm4Ujtx2SA1oq0U4ng-gzGzoHsz",
+            app_key: "e1DlQMsEFdisLiukFm8c04af",
+            placeholder: "Just go go",
+            avatar:""
+        });
+    }
+</script>
+  </section>
 
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
 
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> Ϊ����ʹ�����������۹����뼤��JavaScript</noscript>
-</div>
-<!-- City�氲װ��������� -->
-  
+
   
   
   
