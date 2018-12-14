@@ -353,11 +353,14 @@
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-   var notify = 'true' == true ? true : false;
+   var notify = 'false' == true ? true : false;
    var verify = 'false' == true ? true : false;
     window.onload = function() {
         new Valine({
+            av:AV,
             el: '.comment',
+            emoticon_url: 'https://cloud.panjunwen.com/alu',
+            emoticon_list: ["��.png","�ڴ�.png","����.png","��Ѫ����.png","����.png","����.png"],
             notify: notify,
             verify: verify,
             app_id: "DUcsuhSm4Ujtx2SA1oq0U4ng-gzGzoHsz",
