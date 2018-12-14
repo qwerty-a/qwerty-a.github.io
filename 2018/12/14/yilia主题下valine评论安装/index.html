@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>手动注入 | qwerty-a&#39;s blog</title>
+  <title>yilia主题下valine评论安装 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.测试是否可以注入，可以用布尔监测。几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；">
-<meta name="keywords" content="ctf">
+  <meta name="description" content="前言：目前有以下的评论模块多说（现在已经不能用）网易云跟帖（现在已经不能用）畅言（需要提供备案号）来必力（LiveRe）DisqusHypercommentsValine">
+<meta name="keywords" content="博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手动注入">
-<meta property="og:url" content="http://yoursite.com/2018/12/12/手动注入/index.html">
+<meta property="og:title" content="yilia主题下valine评论安装">
+<meta property="og:url" content="http://yoursite.com/2018/12/14/yilia主题下valine评论安装/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="1.测试是否可以注入，可以用布尔监测。几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；">
+<meta property="og:description" content="前言：目前有以下的评论模块多说（现在已经不能用）网易云跟帖（现在已经不能用）畅言（需要提供备案号）来必力（LiveRe）DisqusHypercommentsValine">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-13T12:57:48.165Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fy64vpgi0pj30x80f20tr.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fy64wgy7urj30re0k5jsg.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fy654zy6e2j30s30b4wf0.jpg">
+<meta property="og:updated_time" content="2018-12-14T04:10:50.626Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手动注入">
-<meta name="twitter:description" content="1.测试是否可以注入，可以用布尔监测。几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；">
+<meta name="twitter:title" content="yilia主题下valine评论安装">
+<meta name="twitter:description" content="前言：目前有以下的评论模块多说（现在已经不能用）网易云跟帖（现在已经不能用）畅言（需要提供备案号）来必力（LiveRe）DisqusHypercommentsValine">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fy64vpgi0pj30x80f20tr.jpg">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -157,28 +161,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-手动注入" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-yilia主题下valine评论安装" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      手动注入
+      yilia主题下valine评论安装
     </h1>
   
 
         
-        <a href="/2018/12/12/手动注入/" class="archive-article-date">
-  	<time datetime="2018-12-12T13:07:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-12</time>
+        <a href="/2018/12/14/yilia主题下valine评论安装/" class="archive-article-date">
+  	<time datetime="2018-12-14T03:29:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-测试是否可以注入，可以用布尔监测。"><a href="#1-测试是否可以注入，可以用布尔监测。" class="headerlink" title="1.测试是否可以注入，可以用布尔监测。"></a>1.测试是否可以注入，可以用布尔监测。</h2><p>几个常用的函数：<br>user()返回当前数据库连接使用的用户；<br>database()返回当前数据库连接使用的数据库；<br>version()返回当前数据库的版本；<br><a id="more"></a><br>table_name<br>information_schema.table<br>table_schema<br>column_name<br>information_schema.columns<br>1’ union/<strong>/select/</strong>table_name/<strong>/from/</strong>/information_schema.tables/<strong>/where/</strong>/‘1’=’1<br>1’ union/<strong>/select/</strong>/column_name/<strong>/information_schema.columnsa.columns/</strong>/where/<strong>/table_name=’flag<br>1’ union/</strong>/select/<strong>/column_namcolumn_namee/</strong>/from/<strong>/information_scheminformation_schema.columnsa.columns/</strong>/where/<strong>/table_name=’flag<br>1’ union/</strong>/select/<strong>/column_name/</strong>/from/<strong>/information_schema.columns/</strong>/where/**/table_name=’flag<br>concat或者concat-ws函数可以将这些函数进行组合使用并显示出来。concat函数中，将其中的参数直接连接起来产生新的字符串。而在concat_ws函数中，第一个参数是用于作为分隔符将后面各个参数的内容分隔开来再进行相应的连接产生新的字符串。以其常用的例子为例：<br>concat_ws(char(32,58,32),user(),database(),version())其中char()函数为将里面的参数转化为相应的字符，其中32为空格，58为冒号(:)，通过这样的方式可以绕过一些简单的过滤机制。</p>
-<h2 id="2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"><a href="#2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息" class="headerlink" title="2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"></a>2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息</h2><h2 id="3-查询所有的表名"><a href="#3-查询所有的表名" class="headerlink" title="3.查询所有的表名"></a>3.查询所有的表名</h2><h2 id="4-直接对其进行进一步的查询，查看其所有的列名"><a href="#4-直接对其进行进一步的查询，查看其所有的列名" class="headerlink" title="4.直接对其进行进一步的查询，查看其所有的列名"></a>4.直接对其进行进一步的查询，查看其所有的列名</h2><h2 id="5-直接查询数据"><a href="#5-直接查询数据" class="headerlink" title="5.直接查询数据"></a>5.直接查询数据</h2><p>hh</p>
+        <p>前言：目前有以下的评论模块<br>多说（现在已经不能用）<br>网易云跟帖（现在已经不能用）<br>畅言（需要提供备案号）<br>来必力（LiveRe）<br>Disqus<br>Hypercomments<br>Valine<br><a id="more"></a><br>由于没有备份，畅言不能用了，接着试了来必力，无奈电脑端不能正常运行，于是想着试试valine，结果成功了，下面的具体步骤。</p>
+<h2 id="1-获取-APP-ID-和-APP-KEY"><a href="#1-获取-APP-ID-和-APP-KEY" class="headerlink" title="1. 获取 APP ID 和 APP KEY"></a>1. 获取 APP ID 和 APP KEY</h2><p>首先去<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">https://leancloud.cn/dashboard/login.html#/signup</a> 注册一个账号<a href="https://leancloud.cn/dashboard/applist.html#/apps" target="_blank" rel="noopener">https://leancloud.cn/dashboard/applist.html#/apps</a> ，创建一个应用，应用名可以随意输。选择刚刚创建的应用&gt;设置&gt;选择应用 Key，然后你就能看到你的APP ID和APP KEY了，参考下图：<br><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fy64vpgi0pj30x80f20tr.jpg" alt=""><br>为了您的数据安全，请填写应用&gt;设置&gt;安全设置中的Web 安全域名，如下图：<br><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fy64wgy7urj30re0k5jsg.jpg" alt=""></p>
+<h2 id="2-接下来开始本地配置"><a href="#2-接下来开始本地配置" class="headerlink" title="2.接下来开始本地配置"></a>2.接下来开始本地配置</h2><p>1.首先我们在hexo\themes\yilia_config.yml中加入Valine的相关配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#6、Valine https://valine.js.org</span><br><span class="line">valine: </span><br><span class="line"> appid:  #Leancloud应用的appId</span><br><span class="line"> appkey:  #Leancloud应用的appKey</span><br><span class="line"> verify: false #验证码</span><br><span class="line"> notify: false #评论回复提醒</span><br><span class="line"> avatar: mm #评论列表头像样式：&apos;&apos;/mm/identicon/monsterid/wavatar/retro/hide</span><br><span class="line"> placeholder: Just go go #评论框占位符</span><br></pre></td></tr></table></figure></p>
+<p>然后在hexo\themes\yilia\layout_partial\article.ejs中加入Valine，注意添加的位置，如图<br><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fy654zy6e2j30s30b4wf0.jpg" alt=""><br>在选择的语句下面添加，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">&lt;section id=&quot;comments&quot; class=&quot;comments&quot;&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    .comments&#123;margin:30px;padding:10px;background:#fff&#125;</span><br><span class="line">    @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">  &lt;%- partial(&apos;post/valine&apos;, &#123;</span><br><span class="line">    key: post.slug,</span><br><span class="line">    title: post.title,</span><br><span class="line">    url: config.url+url_for(post.path)</span><br><span class="line">    &#125;) %&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
+<p>最后我们需要加入Valine的方法，在hexo\themes\yilia\layout_partial\post\的目录中加一个valine.ejs文件，然后里面复制进代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; </span><br><span class="line">&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;//unpkg.com/valine/dist/Valine.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var notify = &apos;&lt;%= theme.valine.notify %&gt;&apos; == true ? true : false;</span><br><span class="line">   var verify = &apos;&lt;%= theme.valine.verify %&gt;&apos; == true ? true : false;</span><br><span class="line">    window.onload = function() &#123;</span><br><span class="line">        new Valine(&#123;</span><br><span class="line">            el: &apos;.comment&apos;,</span><br><span class="line">            notify: notify,</span><br><span class="line">            verify: verify,</span><br><span class="line">            app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,</span><br><span class="line">            app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,</span><br><span class="line">            placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,</span><br><span class="line">            avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后保存。</p>
+<h2 id="3-最后hexo-g-d，就OK啦。"><a href="#3-最后hexo-g-d，就OK啦。" class="headerlink" title="3.最后hexo g -d，就OK啦。"></a>3.最后hexo g -d，就OK啦。</h2><p>如果还想深入加入垃圾屏蔽系统，大家可以参考 <a href="https://panjunwen.com/diy-a-comment-system/" target="_blank" rel="noopener">https://panjunwen.com/diy-a-comment-system/</a></p>
 
       
 
@@ -223,7 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">博客</a>
         		</li>
       		
 		</ul>
@@ -279,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/12/手动注入/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/14/yilia主题下valine评论安装/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -293,18 +302,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/14/yilia主题下valine评论安装/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          yilia主题下valine评论安装
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/12/sqlmap简单使用和dwna/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">sqlmap简单使用和dwna</div>
+    <a href="/2018/12/12/手动注入/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">手动注入</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -331,7 +331,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-测试是否可以注入，可以用布尔监测。"><span class="toc-number">1.</span> <span class="toc-text">1.测试是否可以注入，可以用布尔监测。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"><span class="toc-number">2.</span> <span class="toc-text">2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-查询所有的表名"><span class="toc-number">3.</span> <span class="toc-text">3.查询所有的表名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-直接对其进行进一步的查询，查看其所有的列名"><span class="toc-number">4.</span> <span class="toc-text">4.直接对其进行进一步的查询，查看其所有的列名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-直接查询数据"><span class="toc-number">5.</span> <span class="toc-text">5.直接查询数据</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-获取-APP-ID-和-APP-KEY"><span class="toc-number">1.</span> <span class="toc-text">1. 获取 APP ID 和 APP KEY</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-接下来开始本地配置"><span class="toc-number">2.</span> <span class="toc-text">2.接下来开始本地配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-最后hexo-g-d，就OK啦。"><span class="toc-number">3.</span> <span class="toc-text">3.最后hexo g -d，就OK啦。</span></a></li></ol>
                     </div>
                 </span>
             </div>
