@@ -6,20 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MongoDB数据库注入 | qwerty-a&#39;s blog</title>
+  <title>2018再见，2019你好呀 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前几天的swpuctf比赛有个注入题，那个题的数据库不是常见的sql注入，而是MongoDB数据库，因此需要MongoDB注入，这里简单写写注入过程。">
-<meta name="keywords" content="ctf">
+  <meta name="description" content="在 18 年最后几秒吃颗糖，这样 19 年刚开始就尝到了甜头哈哈哈~ （也只能这样占占生活的便宜了）">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MongoDB数据库注入">
-<meta property="og:url" content="http://yoursite.com/2018/12/25/MongoDB数据库注入/index.html">
+<meta property="og:title" content="2018再见，2019你好呀">
+<meta property="og:url" content="http://yoursite.com/2019/01/01/2018再见，2019你好呀/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="前几天的swpuctf比赛有个注入题，那个题的数据库不是常见的sql注入，而是MongoDB数据库，因此需要MongoDB注入，这里简单写写注入过程。">
+<meta property="og:description" content="在 18 年最后几秒吃颗糖，这样 19 年刚开始就尝到了甜头哈哈哈~ （也只能这样占占生活的便宜了）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-25T11:43:20.386Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fyr6i3xu5jj30go09eq9d.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fyr6k48fvqj30go09e10c.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fyr6kieltvj30go0ci49r.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fyr6kvkvytj30sg0sggzj.jpg">
+<meta property="og:updated_time" content="2019-01-01T08:50:02.894Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MongoDB数据库注入">
-<meta name="twitter:description" content="前几天的swpuctf比赛有个注入题，那个题的数据库不是常见的sql注入，而是MongoDB数据库，因此需要MongoDB注入，这里简单写写注入过程。">
+<meta name="twitter:title" content="2018再见，2019你好呀">
+<meta name="twitter:description" content="在 18 年最后几秒吃颗糖，这样 19 年刚开始就尝到了甜头哈哈哈~ （也只能这样占占生活的便宜了）">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fyr6i3xu5jj30go09eq9d.jpg">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -159,31 +164,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MongoDB数据库注入" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-2018再见，2019你好呀" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MongoDB数据库注入
+      2018再见，2019你好呀
     </h1>
   
 
         
-        <a href="/2018/12/25/MongoDB数据库注入/" class="archive-article-date">
-  	<time datetime="2018-12-25T11:06:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-25</time>
+        <a href="/2019/01/01/2018再见，2019你好呀/" class="archive-article-date">
+  	<time datetime="2019-01-01T08:32:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前几天的swpuctf比赛有个注入题，那个题的数据库不是常见的sql注入，而是MongoDB数据库，因此需要MongoDB注入，这里简单写写注入过程。<a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username[$ne]=test&amp;password[$ne]=test</span><br></pre></td></tr></table></figure></p>
-<p>对应数据库mongodb代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;&apos;username&apos;:&#123;&apos;$ne&apos;:&apos;test&apos;&#125;,&apos;password&apos;:&#123;&apos;$ne&apos;:&apos;test&apos;&#125;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>对应sql代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users where usrname != &apos;test&apos; and password != &apos;test&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>上面的例子是有回显的，那如果没有回显呢，我们传统SQL注入的这种情况就是盲注了，NoSql是否也有呢？有的。<br>利用正则操作符$regex<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.users.find(&#123;&apos;username&apos;:&#123;&apos;$regex&apos;:&apos;^a&apos;&#125;,&apos;password&apos;:&#123;&apos;$regex&apos;:&apos;^b&apos;&#125;&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>查询username以字符a开头及password以字符b开头的数据。<br>详细参考<br><a href="https://www.cnblogs.com/alummox/p/9665592.html" target="_blank" rel="noopener">https://www.cnblogs.com/alummox/p/9665592.html</a><br><a href="https://www.anquanke.com/post/id/168308#h3-6" target="_blank" rel="noopener">https://www.anquanke.com/post/id/168308#h3-6</a></p>
+        <p>  在 18 年最后几秒吃颗糖，这样 19 年刚开始就尝到了甜头哈哈哈~</p>
+<p>（也只能这样占占生活的便宜了）<a id="more"></a></p>
+<p>每一年的年尾我都会没理由的疯玩一场，尽情利用我正轨人生里可以包容的胡闹和任性。</p>
+<p>人生嘛，总是避免不了有操蛋的时候，甚至可以说操蛋才是常态。<strong>于是，非常态的节日就显得格外重要，如同操蛋生活的一个“暂停键”。</strong></p>
+<p>“有什么事，过完节再说。” 毕竟一百多年前，西线战事都可以因为圣诞节而暂停。</p>
+<p>可惜，太多节日被赋予了过多的社会预期，反而成了常态生活中一种加强版延伸，反倒是跨年这样的节点性日子，除了辞旧迎新外再没其他含义和预期，少有的利落和纯粹。</p>
+<p>这样就有了更正大光明的理由，无论如何也要在年底找上几天，从原来的生活抽身而退，大口喝酒大声笑。</p>
+<p>心理学理论里有“假动作”的概念，不管真实情绪怎样，嘴角上扬，强颜欢笑都能骗过大脑，让我们真的觉得自己开心一些。</p>
+<p><strong>跨年仪式正是我的“假动作”，每年这样闹腾几天下来，多巴胺分泌足量，也真的觉得人生真美好，一年里困扰颇深的烦恼事似乎也不那么重要了，毕竟忙着疯玩也没空去想那些乱七八糟的事情了。</strong></p>
+<p>2018 年也有很多纷扰和心碎发生在我的生活里，但是，“<strong>最重要的是，一年后的今天，自己依然是一个快乐和温暖的人。更强大，更坚定，更珍惜我所拥有的爱和幸运。</strong>” 这是我在圣诞节当晚记下的随想。</p>
+<p><strong>世间美好的东西总是稀少的，人生有太多苦痛和无常，这都是我们无法改变的人类共同命运。但我们能全然把控的是面对外物时的心境和态度，我们始终都有欢笑这一选择。</strong></p>
+<p><strong>当我们欢笑时，人生处处便是繁花盛宴。</strong></p>
+<p><strong>不管 2018 年我们哭过多少回，剩下的最后几天，尽情笑，放肆闹，再以热爱一切的姿态迎接新一年。</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fyr6i3xu5jj30go09eq9d.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fyr6k48fvqj30go09e10c.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fyr6kieltvj30go0ci49r.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fyr6kvkvytj30sg0sggzj.jpg" alt=""></p>
 
       
 
@@ -228,7 +245,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -284,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/25/MongoDB数据库注入/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/01/01/2018再见，2019你好呀/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -298,18 +315,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/25/常见绕过/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          常见绕过
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/25/dwva暴力high部分/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">dwva暴力high部分</div>
+    <a href="/2018/12/30/本学期学习总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">本学期学习总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
