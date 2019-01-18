@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>盲注基本步骤 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这几天天天耍。。。。但是还是做了个sql盲注的题，学到了很多，ctf真的是个大坑，下面总结下盲注基本步骤，">
+  <meta name="description" content="这几天天天耍。。。。但是还是做了个sql盲注的题，学到了很多，ctf真的是个大坑，下面总结下盲注基本步骤。">
 <meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="盲注基本步骤">
 <meta property="og:url" content="http://yoursite.com/2019/01/12/盲注基本步骤/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="这几天天天耍。。。。但是还是做了个sql盲注的题，学到了很多，ctf真的是个大坑，下面总结下盲注基本步骤，">
+<meta property="og:description" content="这几天天天耍。。。。但是还是做了个sql盲注的题，学到了很多，ctf真的是个大坑，下面总结下盲注基本步骤。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-12T04:23:24.136Z">
+<meta property="og:updated_time" content="2019-01-18T14:31:51.485Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="盲注基本步骤">
-<meta name="twitter:description" content="这几天天天耍。。。。但是还是做了个sql盲注的题，学到了很多，ctf真的是个大坑，下面总结下盲注基本步骤，">
+<meta name="twitter:description" content="这几天天天耍。。。。但是还是做了个sql盲注的题，学到了很多，ctf真的是个大坑，下面总结下盲注基本步骤。">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这几天天天耍。。。。但是还是做了个sql盲注的题，学到了很多，ctf真的是个大坑，下面总结下盲注基本步骤，<a id="more"></a></p>
+        <p>这几天天天耍。。。。但是还是做了个sql盲注的题，学到了很多，ctf真的是个大坑，下面总结下盲注基本步骤。<a id="more"></a></p>
 <h3 id="一、基于布尔的盲注："><a href="#一、基于布尔的盲注：" class="headerlink" title="一、基于布尔的盲注："></a>一、基于布尔的盲注：</h3><p>1.判断是否存在注入，注入是字符型还是数字型，例：1 or 1=1，1’ or ‘1’=’1<br>2.猜解当前数据库名，例：猜长度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and length(database())=1</span><br></pre></td></tr></table></figure></p>
 <p>逐个猜字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">and ascii(substr(databse(),1,1))&gt;97#</span><br><span class="line">或select database() regexp &apos;&quot;+data+&quot;$&apos;</span><br></pre></td></tr></table></figure></p>
 <p>3.猜解数据库中的表名，例：猜表数量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count (table_name) from information_schema.tables where table_schema=database())=1 #</span><br></pre></td></tr></table></figure></p>
