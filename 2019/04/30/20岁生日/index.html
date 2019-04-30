@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>通过dvwa了解各种漏洞 | qwerty-a&#39;s blog</title>
+  <title>20岁生日 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。">
-<meta name="keywords" content="ctf">
+  <meta name="description" content="今天满20岁了，这一年真快，自己也奔三了。。。。">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过dvwa了解各种漏洞">
-<meta property="og:url" content="http://yoursite.com/2018/12/15/通过dvwa了解各种漏洞/index.html">
+<meta property="og:title" content="20岁生日">
+<meta property="og:url" content="http://yoursite.com/2019/04/30/20岁生日/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。">
+<meta property="og:description" content="今天满20岁了，这一年真快，自己也奔三了。。。。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fy7tv3kv11j311y0gx3zt.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fy7ts2rl8bj311y0gx75t.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fy7tqbq9qij30u01hc0ws.jpg">
-<meta property="og:updated_time" content="2018-12-15T15:29:00.103Z">
+<meta property="og:updated_time" content="2019-04-30T16:15:24.595Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通过dvwa了解各种漏洞">
-<meta name="twitter:description" content="DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006XekMIgy1fy7tv3kv11j311y0gx3zt.jpg">
+<meta name="twitter:title" content="20岁生日">
+<meta name="twitter:description" content="今天满20岁了，这一年真快，自己也奔三了。。。。">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -163,46 +159,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-通过dvwa了解各种漏洞" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-20岁生日" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      通过dvwa了解各种漏洞
+      20岁生日
     </h1>
   
 
         
-        <a href="/2018/12/15/通过dvwa了解各种漏洞/" class="archive-article-date">
-  	<time datetime="2018-12-15T14:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-15</time>
+        <a href="/2019/04/30/20岁生日/" class="archive-article-date">
+  	<time datetime="2019-04-30T15:54:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>DVWA（Damn Vulnerable Web Application）是一个用来进行安全脆弱性鉴定的PHP/MySQL Web应用，旨在为安全专业人员测试自己的专业技能和工具提供合法的环境，帮助web开发者更好的理解web应用安全防范的过程。<br><a id="more"></a><br>DVWA共有十一个模块，分别是</p>
-<p>Brute Force（暴力（破解））</p>
-<p>Command Injection（命令行注入）</p>
-<p>CSRF（跨站请求伪造）</p>
-<p>File Inclusion（文件包含）</p>
-<p>File Upload（文件上传）</p>
-<p>Insecure CAPTCHA （不安全的验证码）</p>
-<p>SQL Injection（SQL注入）</p>
-<p>SQL Injection（Blind）（SQL盲注）</p>
-<p>XSS（Reflected）（反射型跨站脚本）</p>
-<p>XSS（Stored）（存储型跨站脚本）</p>
-<p>JavaScript</p>
-<p>每个部分都有对应的漏洞，接下来任务，一个一个去尝试利用这些漏洞。<br>今天试了xss，总结下xss部分，XSS</p>
-<p>XSS，全称Cross Site Scripting，即跨站脚本攻击，某种意义上也是一种注入攻击，是指攻击者在页面中注入恶意的脚本代码，当受害者访问该页面时，恶意代码会在其浏览器上执行，需要强调的是，XSS不仅仅限于JavaScript，还包括flash等其它脚本语言。根据恶意代码是否存储在服务器中，XSS可以分为存储型的XSS与反射型的XSS。</p>
-<p>DOM型的XSS由于其特殊性，常常被分为第三种，这是一种基于DOM树的XSS。例如服务器端经常使用document.boby.innerHtml等函数动态生成html页面，如果这些函数在引用某些变量时没有进行过滤或检查，就会产生DOM型的XSS。DOM型XSS可能是存储型，也有可能是反射型。</p>
-<p>我现在理解就是利用xss漏洞，可以获取网站用户的信息，为了防止xss漏洞，网站会对一些关键词进行屏蔽，而我现在的任务就是绕过屏蔽。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fy7tv3kv11j311y0gx3zt.jpg" alt=""></p>
-<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fy7ts2rl8bj311y0gx75t.jpg" alt=""></p>
-<p>明天仔细了解了解xss。<br>对了，今天球鞋到了，真帅</p>
-<p><img src="https://ws1.sinaimg.cn/large/006XekMIgy1fy7tqbq9qij30u01hc0ws.jpg" alt=""></p>
+        <p>今天满20岁了，这一年真快，自己也奔三了。。。。<a id="more"></a></p>
+<p>今天一天的事情，真是烦，还想去吃一顿好的，都没有去成。</p>
+<p>去年一年，富士康打工，退部门，加实验室，好像也没有什么值得后悔或骄傲的事情。19岁最大的收获可能是找到了自己的方向了吧，知道自己应该怎样努力。</p>
+<p>记得以前，特别希望有人记得自己的生日，然后收到礼物。但是现在不知道为什么，越来越不重视生日。</p>
+<p>以后自己要更珍惜对自己好的人。</p>
+<p>高兴的事，自己球技去年上升很多，虽然还是菜(⊙o⊙)…感觉自己对羽毛球是真爱了，hahhahaha。。。。。明年球技继续提升。</p>
+<p>现在每天都忙着学习，感觉很充实，珍惜现在的时间吧，这样的美好。</p>
+<p>其实想问下自己很多为什么？为什么自己努力的事，就是没有效果？为什么自己脸上还是这么多痘？为什么自己就是挺不直背？为什么别人能想到，自己想不到？为什么自己学东西学的这么慢？为什么自己总是错过许多？为什么人和人这样的不同?</p>
+<p>自己有时很正能量，但是很多时候还是迷茫的，迷茫的时候只有自己抗，或许是自己已经有了一颗大心脏。</p>
+<p>无论怎样，没有不会停下来的绝望，还是要努力。21岁，希望自己学到更多，能够得到更多。</p>
 
       
 
@@ -247,7 +233,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ctf</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -303,7 +289,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/15/通过dvwa了解各种漏洞/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/30/20岁生日/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,18 +303,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/12/20/就是想写点什么/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          就是想写点什么
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/14/关于博客/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于博客</div>
+    <a href="/2019/04/24/CSS布局奇淫技巧之-各种居中/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS布局奇淫技巧之--各种居中</div>
       <i class="icon-circle-right"></i>
     </a>
   
