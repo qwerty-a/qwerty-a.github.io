@@ -17,7 +17,7 @@
 <meta property="og:description" content="这段时间学习了react，现在总结一下react和一些组件的用法">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/06/02/5cf3379a73ffc28993.png">
-<meta property="og:updated_time" content="2019-06-02T08:48:12.467Z">
+<meta property="og:updated_time" content="2019-06-02T08:54:27.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react的一些底层知识">
 <meta name="twitter:description" content="这段时间学习了react，现在总结一下react和一些组件的用法">
@@ -189,7 +189,7 @@
 <h3 id="2-工程建立和工程目录文件简介"><a href="#2-工程建立和工程目录文件简介" class="headerlink" title="2.工程建立和工程目录文件简介"></a>2.工程建立和工程目录文件简介</h3><p>-首先电脑要安装npm,note</p>
 <p>-然后在命令行进入你工程想创建的地方，然后输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app//安装脚手架</span><br><span class="line">create-react-app my-app//创建一个名叫my-app的工程</span><br><span class="line">cd my-app//进入该工程的目录</span><br><span class="line">npm start//在浏览器中启动该工程</span><br></pre></td></tr></table></figure></p>
 <p> -工程目录简介</p>
-<p> <img src="https://i.loli.net/2019/06/02/5cf3379a73ffc28993.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/06/02/5cf3379a73ffc28993.png" alt="简介"></p>
 <h3 id="3-JSX语法"><a href="#3-JSX语法" class="headerlink" title="3.JSX语法"></a>3.JSX语法</h3><p>-React发明了JSX，利用HTML语法来创建虚拟DOM。React的核心机制之一就是可以在内存中创建虚拟的DOM元素。以此来减少对实际DOM的操作从而提升性能。 JSX 即Javascript XML，它是对JavaScript 语法扩展。React 使用 JSX 来替代常规的 JavaScript。你也可以认为JSX其实就是JavaScript。当遇到&lt;，JSX就当HTML解析，遇到{就当JavaScript解析。</p>
 <p>-DOM类型的标签需要标签的首字母小写，React组件类型的标签需要首字母大写。React也是通过首字母的大小写来判断渲染的是哪种类型的标签。</p>
 <p>-JSX是支持表达式的，用法很简单，你需要将表达式写到{}内即可。不过需要注意的是在JSX当中，是不能使用if else 的，不过可以使用三元运算表达式：</p>
