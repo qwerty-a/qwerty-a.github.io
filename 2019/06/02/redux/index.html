@@ -8,17 +8,20 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="���ϿƼ���ѧ2017��">
+  <meta name="description" content="title: reduxdate: 2019-06-02 20:05:44 tags: react因为react组件之间传递数据并不方便，所以需要用redux进行数据的管理。">
 <meta name="keywords" content="ctf���Źܣ���Ӱ�����֣�c++">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="qwerty-a&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/06/02/redux/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="���ϿƼ���ѧ2017��">
+<meta property="og:description" content="title: reduxdate: 2019-06-02 20:05:44 tags: react因为react组件之间传递数据并不方便，所以需要用redux进行数据的管理。">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/06/02/5cf3ab1e53c0012769.png">
+<meta property="og:updated_time" content="2019-06-02T12:43:20.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="qwerty-a&#39;s blog">
-<meta name="twitter:description" content="���ϿƼ���ѧ2017��">
+<meta name="twitter:description" content="title: reduxdate: 2019-06-02 20:05:44 tags: react因为react组件之间传递数据并不方便，所以需要用redux进行数据的管理。">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/02/5cf3ab1e53c0012769.png">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -158,37 +161,165 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-redux" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-redux" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
 <p>title: redux<br>date: 2019-06-02 20:05:44</p>
-<h2 id="tags-react"><a href="#tags-react" class="headerlink" title="tags: react"></a>tags: react</h2><p>因为react组件之间传递数据并不方便，所以需要用redux进行数据的管理。
-        
+<h2 id="tags-react"><a href="#tags-react" class="headerlink" title="tags: react"></a>tags: react</h2><p>因为react组件之间传递数据并不方便，所以需要用redux进行数据的管理。<a id="more"></a></p>
+<h3 id="redux的安装"><a href="#redux的安装" class="headerlink" title="redux的安装"></a>redux的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install --save redux</span><br><span class="line">npm install --save react-redux</span><br></pre></td></tr></table></figure>
+<h3 id="Immutable-js"><a href="#Immutable-js" class="headerlink" title="Immutable.js"></a>Immutable.js</h3><p>Immutable Data 就是一旦创建，就不能再被更改的数据。对 Immutable 对象的任何修改或添加删除操作都会返回一个新的 Immutable 对象。Immutable 实现的原理是 Persistent Data Structure（持久化数据结构），也就是使用旧数据创建新数据时，要保证旧数据同时可用且不变。同时为了避免 deepCopy 把所有节点都复制一遍带来的性能损耗，Immutable 使用了Structural Sharing（结构共享），即如果对象树中一个节点发生变化，只修改这个节点和受它影响的父节点，其它节点则进行共享。</p>
+<p>因为react响应式的特性，使用使用Immutable将非常节省性能。可以在组件里把Component换成PureComponent。我现在只总结用法，底层不深入总结。</p>
+<p>将reducer中的state转换为Immutable Data </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const defaultState=fromJS(&#123;</span><br><span class="line">	focused: false,</span><br><span class="line">	mouseIn: false,</span><br><span class="line">	list:[],</span><br><span class="line">	page: 1,</span><br><span class="line">	totalPage: 1</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在reducer中要修改Immutable Data 中的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">export default (state=defaultState,action)=&gt;&#123;</span><br><span class="line">	switch(action.type)&#123;</span><br><span class="line">		case actionTypes.SEAECH_FOCUS:</span><br><span class="line">			return state.set(&apos;focused&apos;,true);</span><br><span class="line">		case actionTypes.SEARCH_BLUR:</span><br><span class="line">			return state.set(&apos;focused&apos;,false);</span><br><span class="line">		case actionTypes.CHANGE_LIST:</span><br><span class="line">			return state.merge(&#123;</span><br><span class="line">				list: action.data,</span><br><span class="line">				totalPage: action.totalPage</span><br><span class="line">			&#125;);</span><br><span class="line">		case actionTypes.MOUSE_ENTER:</span><br><span class="line">			return state.set(&apos;mouseIn&apos;,true);</span><br><span class="line">		case actionTypes.MOUSE_LEAVE:</span><br><span class="line">			return state.set(&apos;mouseIn&apos;,false);</span><br><span class="line">		case actionTypes.CHANGE_PAGE:</span><br><span class="line">			return state.set(&apos;page&apos;,action.page);</span><br><span class="line">		default:</span><br><span class="line">			return state;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在actionCreator中要传入Immutable Data</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; fromJS &#125; from &apos;immutable&apos;;</span><br><span class="line">const action=&#123;</span><br><span class="line">				type: actionTypes.CHANGE_LIST,</span><br><span class="line">				data: fromJS(data.data),</span><br><span class="line">				totalPage: Math.ceil(data.data.length/10)</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure>
+<p>在组件中读取数据，并存在组件的props中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const mapStateToProps=(state)=&gt;&#123;</span><br><span class="line">	return&#123;</span><br><span class="line">		focused: state.getIn([&apos;header&apos;,&apos;focused&apos;]),</span><br><span class="line">		list: state.getIn([&apos;header&apos;,&apos;list&apos;]),</span><br><span class="line">		page: state.getIn([&apos;header&apos;,&apos;page&apos;]),</span><br><span class="line">		mouseIn: state.getIn([&apos;header&apos;,&apos;mouseIn&apos;]),</span><br><span class="line">		totalPage: state.getIn([&apos;header&apos;,&apos;totalPage&apos;]),</span><br><span class="line">		login: state.getIn([&apos;login&apos;,&apos;login&apos;])</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="redux的组成，这里使用Immutable-Data"><a href="#redux的组成，这里使用Immutable-Data" class="headerlink" title="redux的组成，这里使用Immutable Data"></a>redux的组成，这里使用Immutable Data</h3><h4 id="state"><a href="#state" class="headerlink" title="state"></a>state</h4><p>state是整个应用的数据，本质上是一个普通对象。<br>state决定了整个应用的组件如何渲染，渲染的结果是什么。可以说，State是应用的灵魂，组件是应用的肉体。<br>所以，在项目开发初期，设计一份健壮灵活的State尤其重要，对后续的开发有很大的帮助。<br>但是，并不是所有的数据都需要保存到state中，有些属于组件的数据是完全可以留给组件自身去维护的。</p>
+<h4 id="action"><a href="#action" class="headerlink" title="action"></a>action</h4><p>数据state已经有了，那么我们是如何实现管理这些state中的数据的呢？那就是action，什么是action？按字面意思解释就是动作，也可以理解成，一个可能！改变state的动作包装。就这么简单。。。。<br>只有当某一个动作发生的时候才能够触发这个state去改变，那么，触发state变化的原因那么多，比如这里的我们的点击事件，还有网络请求，页面进入，鼠标移入。。。所以action的出现，就是为了把这些操作所产生或者改变的数据从应用传到store中的有效载荷。 需要说明的是，action是state的唯一来源。它本质上就是一个JavaScript对象，但是约定的包含type属性，可以理解成每个人都要有名字一般。除了type属性，别的属性，都可以.<br>那么这么多action一个个手动创建必然不现实，一般我们会写好actionCreator，即action的创建函数。调用actionCreator，给你返回一个action。这里我们可以使用 redux-actions，嗯呢，我们下文有介绍。<br>比如有一个counter数量加减应用，我们就有两个action，一个decrement，一个increment。 所以这里的action creator写成如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">export function decrement() &#123;</span><br><span class="line">    return&#123;</span><br><span class="line">        type:DECREMENT_COUNTER</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export function increment()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">        type:INCREMENT_COUNTER</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么，当action创建完成了之后呢，我们怎么触发这些action呢，这时我们是要利用dispatch，比如我们执行count增减减少动作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export function incrementIfOdd(counter)&#123;</span><br><span class="line">    return (dispatch)=&gt;&#123;</span><br><span class="line">        if(counter%2==0) &#123;</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        dispatch(increment());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了减少样板代码，我们使用单独的模块或文件来定义 action type 常量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export const INCREMENT_COUNTER = &apos;INCREMENT_COUNTER&apos;;</span><br><span class="line">export const DECREMENT_COUNTER = &apos;DECREMENT_COUNTER&apos;;</span><br></pre></td></tr></table></figure>
+<p>这么做不是必须的，在大型应用中把它们显式地定义成常量还是利大于弊的.</p>
+<h4 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h4><p>既然这个可能改变state的动作已经包装好了，那么我们怎么去判断并且对state做相应的改变呢？对，这就是reducer干的事情了。<br>reducer是state最终格式的确定。它是一个纯函数，也就是说，只要传入参数相同，返回计算得到的下一个 state 就一定相同。没有特殊情况、没有副作用，没有 API 请求、没有变量修改，单纯执行计算。<br>reducer对传入的action进行判断，然后返回一个通过判断后的state，这就是reducer的全部职责。如我们的counter应用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import &#123;INCREMENT_COUNTER,DECREMENT_COUNTER&#125; from &apos;../actions&apos;;</span><br><span class="line">import &#123; fromJS &#125; from &apos;immutable&apos;;</span><br><span class="line"></span><br><span class="line">const defaultstate==fromJS(&#123;</span><br><span class="line">counter: 1;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export default function counter(state = defaultstate, action) &#123;</span><br><span class="line">    switch (action.type)&#123;</span><br><span class="line">        case INCREMENT_COUNTER:</span><br><span class="line">            return state.set(&apos;counter&apos;,counter+1);</span><br><span class="line">        case DECREMENT_COUNTER:</span><br><span class="line">            return state.set(&apos;counter&apos;,counter-1);</span><br><span class="line">        default:</span><br><span class="line">            return state;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里我们就是对增和减两个之前在action定义好的常量做了处理。<br>对于一个比较大一点的应用来说，我们是需要将reducer拆分的，最后通过redux提供的combineReducers方法组合到一起。 如此项目上的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import &#123; combineReducers &#125; from &apos;redux-immutable&apos;;</span><br><span class="line">import &#123; reducer as counterReducer &#125; from &apos;../common/header/store&apos;;</span><br><span class="line">const reducer = combineReducers(&#123;</span><br><span class="line">	conuter: headerReducer,</span><br><span class="line">&#125;)</span><br><span class="line">export default rootReducer;</span><br></pre></td></tr></table></figure>
+<p>每个reducer只负责管理全局state中它负责的一部分。每个reducer的state参数都不同，分别对应它管理的那部分state数据。combineReducers()所做的只是生成一个函数，这个函数来调用你的一系列reducer，每个reducer根据它们的key来筛选出state中的一部分数据并处理， 然后这个生成的函数再将所有reducer的结果合并成一个大的对象。</p>
+<h4 id="store"><a href="#store" class="headerlink" title="store"></a>store</h4><p>store是对之前说到一个联系和管理。具有如下职责</p>
+<p>-维持应用的state；<br>-提供getState()方法获取 state<br>-提供dispatch(action)方法更新 state；<br>-通过subscribe(listener)注册监听器;<br>-通过subscribe(listener)返回的函数注销监听器。</p>
+<p>强调一下 Redux 应用只有一个单一的store。当需要拆分数据处理逻辑时，你应该使用reducer组合,而不是创建多个store。store的创建通过redux的createStore方法创建，这个方法还需要传入reducer，很容易理解：毕竟我需要dispatch一个action来改变state嘛。 应用一般会有一个初始化的state，所以可选为第二个参数，这个参数通常是有服务端提供的，传说中的Universal渲染。 第三个参数一般是需要使用的中间件，通过applyMiddleware传入。<br>说了这么多，action，store，actionCreator，reducer关系就是这么如下的简单明了： </p>
+<p><img src="https://i.loli.net/2019/06/02/5cf3ab1e53c0012769.png" alt=""></p>
+<h3 id="结合react-redux的使用"><a href="#结合react-redux的使用" class="headerlink" title="结合react-redux的使用"></a>结合react-redux的使用</h3><p>react-redux，redux和react的桥梁工具。<br>react-redux将组件分成了两大类，UI组建component和容器组建container。 简单的说，UI组建负责美的呈现，容器组件负责来帮你盛着，给你”力量”。<br>UI 组件有以下几个特征：</p>
+<p>-只负责 UI 的呈现，不带有任何业务逻辑<br>-没有状态（即不使用this.state这个变量）<br>-所有数据都由参数（this.props）提供<br>-不使用任何 Redux 的 API</p>
+<p>如：·</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">export default class Counter extends Component&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        const &#123; counter, increment, decrement, incrementIfOdd, incrementAsync &#125; = this.props;</span><br><span class="line">        return(</span><br><span class="line">            &lt;p&gt;</span><br><span class="line">                Clicked:&#123;counter&#125; times</span><br><span class="line">                &lt;button onClick=&#123;increment&#125;&gt;+&lt;/button&gt;</span><br><span class="line">                &lt;button onClick=&#123;decrement&#125;&gt;-&lt;/button&gt;</span><br><span class="line">                &lt;button onClick=&#123;incrementIfOdd&#125;&gt;increment if Odd&lt;/button&gt;</span><br><span class="line">                &lt;button onClick=&#123;incrementAsync&#125;&gt;increment async&lt;/button&gt;</span><br><span class="line">            &lt;/p&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>容器组件特性则恰恰相反：</p>
+<p>-负责管理数据和业务逻辑，不负责 UI 的呈现<br>-带有内部状态<br>-使用 Redux 的 API</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Detail extends PureComponent &#123;</span><br><span class="line">	render() &#123;</span><br><span class="line">		return(</span><br><span class="line">			&lt;DetailWrapper&gt;</span><br><span class="line">			&lt;Header&gt;&#123;this.props.title&#125;&lt;/Header&gt;</span><br><span class="line">			&lt;Content dangerouslySetInnerHTML=&#123;&#123;__html: this.props.content&#125;&#125; /&gt;</span><br><span class="line">			&lt;/DetailWrapper&gt;</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">	componentDidMount()&#123;</span><br><span class="line">		this.props.getDetail(this.props.match.params.id);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const mapState=(state)=&gt;(&#123;</span><br><span class="line">	title: state.getIn([&apos;detail&apos;,&apos;title&apos;]),</span><br><span class="line">	content: state.getIn([&apos;detail&apos;,&apos;content&apos;])</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">const mapDispatch=(dispatch)=&gt;(&#123;</span><br><span class="line">	getDetail(id)&#123;</span><br><span class="line">		dispatch(actionCreators.getDetail(id));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export default connect(mapState,mapDispatch)(Detail);</span><br></pre></td></tr></table></figure>
+<p>connect方法接受两个参数：mapStateToProps和mapDispatchToProps。它们定义了UI组件的业务逻辑。前者负责输入逻辑，即将state映射到 UI 组件的参数（props）， 后者负责输出逻辑，即将用户对 UI 组件的操作映射成Action。因为作为组件，我们只要能拿到值，能发出改变值得action就可以了，所以mapStateToProps和mapDispatchToProps正是满足这个需求的。</p>
+<h3 id="redux-thunk"><a href="#redux-thunk" class="headerlink" title="redux-thunk"></a>redux-thunk</h3><p>一个比较流行的redux的action中间件，它可以让actionCreator暂时不返回action对象，引入thunk插件后，我们可以在actionCreators内部编写逻辑，处理请求结果。而不只是单纯的返回一个action对象。</p>
+<p>用法：</p>
+<p>actionCreate里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const getList=()=&gt;&#123;</span><br><span class="line">	return(dispatch)=&gt;&#123;</span><br><span class="line">		axios.get(&apos;/api/headerList.json&apos;).then((res)=&gt;&#123;</span><br><span class="line">			const data=res.data;</span><br><span class="line">			const action=&#123;</span><br><span class="line">				type: actionTypes.CHANGE_LIST,</span><br><span class="line">				data: fromJS(data.data),</span><br><span class="line">				totalPage: Math.ceil(data.data.length/10)</span><br><span class="line">			&#125;</span><br><span class="line">			dispatch(action);			</span><br><span class="line">		&#125;).catch(()=&gt;&#123;</span><br><span class="line">			console.log(&apos;error&apos;);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Store里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createStore,compose,applyMiddleware &#125; from &apos;redux&apos;;</span><br><span class="line">import thunk from &apos;redux-thunk&apos;;</span><br><span class="line">import reducer from &apos;./reducer&apos;;</span><br><span class="line"></span><br><span class="line">const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;</span><br><span class="line"></span><br><span class="line">const enhancer = composeEnhancers(applyMiddleware(thunk));</span><br><span class="line"></span><br><span class="line">const store = createStore(</span><br><span class="line">	reducer,</span><br><span class="line">	enhancer</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export default store;</span><br></pre></td></tr></table></figure>
+
       
 
       
-    </p></div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfb.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
     <div class="article-info article-info-index">
       
       
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/02/redux/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/02/redux/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/05/17/react一些底层知识/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react的一些底层知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -203,683 +334,65 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-react一些底层知识" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/17/react一些底层知识/">react的一些底层知识</a>
-    </h1>
-  
-
-        
-        <a href="/2019/05/17/react一些底层知识/" class="archive-article-date">
-  	<time datetime="2019-05-17T14:05:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这段时间学习了react，现在总结一下react和一些组件的用法
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/17/react一些底层知识/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags-react"><span class="toc-number">1.</span> <span class="toc-text">tags: react</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redux的安装"><span class="toc-number">1.1.</span> <span class="toc-text">redux的安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Immutable-js"><span class="toc-number">1.2.</span> <span class="toc-text">Immutable.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redux的组成，这里使用Immutable-Data"><span class="toc-number">1.3.</span> <span class="toc-text">redux的组成，这里使用Immutable Data</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#state"><span class="toc-number">1.3.1.</span> <span class="toc-text">state</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#action"><span class="toc-number">1.3.2.</span> <span class="toc-text">action</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#reducer"><span class="toc-number">1.3.3.</span> <span class="toc-text">reducer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#store"><span class="toc-number">1.3.4.</span> <span class="toc-text">store</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结合react-redux的使用"><span class="toc-number">1.4.</span> <span class="toc-text">结合react-redux的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redux-thunk"><span class="toc-number">1.5.</span> <span class="toc-text">redux-thunk</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
 
-  
-    <article id="post-最近乱七八糟的事" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/17/最近乱七八糟的事/">最近乱七八糟的事</a>
-    </h1>
-  
 
-        
-        <a href="/2019/05/17/最近乱七八糟的事/" class="archive-article-date">
-  	<time datetime="2019-05-17T14:05:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>好久没更新微博了，一来自己懒，二是学的东西太系统，感觉没办法往上面填。最近发生的事一堆，记录一下下。
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/17/最近乱七八糟的事/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-20岁生日" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/30/20岁生日/">20岁生日</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/30/20岁生日/" class="archive-article-date">
-  	<time datetime="2019-04-30T15:54:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天满20岁了，这一年真快，自己也奔三了。。。。
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/30/20岁生日/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-CSS布局奇淫技巧之-各种居中" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/24/CSS布局奇淫技巧之-各种居中/">CSS布局奇淫技巧之--各种居中</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/24/CSS布局奇淫技巧之-各种居中/" class="archive-article-date">
-  	<time datetime="2019-04-24T11:08:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>居中是我们使用css来布局时常遇到的情况。使用css来进行居中时，有时一个属性就能搞定，有时则需要一定的技巧才能兼容到所有浏览器，本文就居中的一些常用方法做个简单的介绍。
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/24/CSS布局奇淫技巧之-各种居中/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-林丹威武" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/07/林丹威武/">林丹威武</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/07/林丹威武/" class="archive-article-date">
-  	<time datetime="2019-04-07T07:54:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今年的大马赛真好看，林丹居然夺冠了,hhhhhh。。。
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">羽毛球</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/07/林丹威武/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-BEM开发模式" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/27/BEM开发模式/">BEM开发模式</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/27/BEM开发模式/" class="archive-article-date">
-  	<time datetime="2019-03-27T13:48:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这一个月，自己自学了css3，html5，javascript，在写代码的时候知道了BEM开发模式。BEM开发模式其实就是一种命名规则，它能让代码更易维护，虽然这种方式可能会让代码长度增加许多，但这很明显是值得的。
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/27/BEM开发模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-以史为鉴：前端开发的四个时代" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/21/以史为鉴：前端开发的四个时代/">以史为鉴：前端开发的四个时代</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/21/以史为鉴：前端开发的四个时代/" class="archive-article-date">
-  	<time datetime="2019-03-21T10:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在前端整体进入组件化开发时代后，手写各种 UI 组件成为了许多前端工程师入门后的第一课。而对于工作了几年的资深工程师来说，手写组件已经不再是问题，但对于如何帮助团队提升整体开发效率以及个人接下来的技术成长方向却开始变得非常迷茫。
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/21/以史为鉴：前端开发的四个时代/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3月总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/21/3月总结/">3月总结</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/21/3月总结/" class="archive-article-date">
-  	<time datetime="2019-03-21T10:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>想自己一个在高中被人逼着总结都不愿意总结的人，现在却爱上了总结，还有做笔记(⊙o⊙)…
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/21/3月总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-旭羽杯" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/旭羽杯/">旭羽杯</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/12/旭羽杯/" class="archive-article-date">
-  	<time datetime="2019-03-12T09:16:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第二次参加学校的比赛，终于进了学校体育馆一次了。
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">羽毛球</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/12/旭羽杯/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            av:AV,
+            el: '.comment',
+            emoticon_url: 'https://qwerty-a.github.io.com/alu',
+            emoticon_list: ["��.png","�ڴ�.png","����.png","��Ѫ����.png","����.png","����.png"],
+            notify: notify,
+            verify: verify,
+            app_id: "DUcsuhSm4Ujtx2SA1oq0U4ng-gzGzoHsz",
+            app_key: "e1DlQMsEFdisLiukFm8c04af",
+            placeholder: "填写了邮箱我可以直接回复到你的邮箱哟~~~",
+            avatar:""
+        });
+    }
+</script>
+  </section>
 
 
 
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -902,8 +415,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
