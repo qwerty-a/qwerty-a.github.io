@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 总结 | qwerty-a&#39;s blog</title>
+  <title>react的一些底层知识 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="���ϿƼ���ѧ2017��">
-<meta name="keywords" content="ctf���Źܣ���Ӱ�����֣�c++">
-<meta property="og:type" content="website">
-<meta property="og:title" content="qwerty-a&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/tags/总结/index.html">
+  <meta name="description" content="这段时间学习了react，现在总结一下react和一些组件的用法">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react的一些底层知识">
+<meta property="og:url" content="http://yoursite.com/2019/05/17/react一些底层知识/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="���ϿƼ���ѧ2017��">
+<meta property="og:description" content="这段时间学习了react，现在总结一下react和一些组件的用法">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/06/02/5cf3379a73ffc28993.png">
+<meta property="og:updated_time" content="2019-06-02T08:26:23.859Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="qwerty-a&#39;s blog">
-<meta name="twitter:description" content="���ϿƼ���ѧ2017��">
+<meta name="twitter:title" content="react的一些底层知识">
+<meta name="twitter:description" content="这段时间学习了react，现在总结一下react和一些组件的用法">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/02/5cf3379a73ffc28993.png">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -158,60 +161,318 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-react一些底层知识" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/21/3月总结/" class="archive-article-date">
-  	<time datetime="2019-03-21T10:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/21/3月总结/">3月总结</a>
+    <h1 class="article-title" itemprop="name">
+      react的一些底层知识
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/05/17/react一些底层知识/" class="archive-article-date">
+  	<time datetime="2019-05-17T14:05:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这段时间学习了react，现在总结一下react和一些组件的用法<a id="more"></a></p>
+<h3 id="1-什么是react-它的特点？"><a href="#1-什么是react-它的特点？" class="headerlink" title="1.什么是react?它的特点？"></a>1.什么是react?它的特点？</h3><p>-它是facebook推出的开源前端框架，使用人数多。</p>
+<p>-函数式编程（感觉是因为react用的es6的原因，因为es6的特点就是函数式编程）。</p>
+<p>-响应式</p>
+<p>-比较灵活</p>
+<h3 id="2-工程建立和工程目录文件简介"><a href="#2-工程建立和工程目录文件简介" class="headerlink" title="2.工程建立和工程目录文件简介"></a>2.工程建立和工程目录文件简介</h3><p>-首先电脑要安装npm,note</p>
+<p>-然后在命令行进入你工程想创建的地方，然后输入命令<br><code>npm install -g create-react-app//安装脚手架
+create-react-app my-app//创建一个名叫my-app的工程
+cd my-app//进入该工程的目录
+npm start//在浏览器中启动该工程</code></p>
+<p> -工程目录简介</p>
+<p> <img src="https://i.loli.net/2019/06/02/5cf3379a73ffc28993.png" alt=""></p>
+<h3 id="3-JSX语法"><a href="#3-JSX语法" class="headerlink" title="3.JSX语法"></a>3.JSX语法</h3><p>-React发明了JSX，利用HTML语法来创建虚拟DOM。React的核心机制之一就是可以在内存中创建虚拟的DOM元素。以此来减少对实际DOM的操作从而提升性能。 JSX 即Javascript XML，它是对JavaScript 语法扩展。React 使用 JSX 来替代常规的 JavaScript。你也可以认为JSX其实就是JavaScript。当遇到&lt;，JSX就当HTML解析，遇到{就当JavaScript解析。</p>
+<p>-DOM类型的标签需要标签的首字母小写，React组件类型的标签需要首字母大写。React也是通过首字母的大小写来判断渲染的是哪种类型的标签。</p>
+<p>-JSX是支持表达式的，用法很简单，你需要将表达式写到{}内即可。不过需要注意的是在JSX当中，是不能使用if else 的，不过可以使用三元运算表达式：</p>
+<p><code>ReactDOM.render(
+        &lt;div&gt;
+            &lt;p&gt;{ok==1?&quot;我很帅&quot;:&quot;我很有才华&quot;}&lt;/p&gt;
+        &lt;/div&gt;,
+        document.querySelector(&quot;#wrap&quot;)
+    )</code></p>
+<p>-如果要用JSX来添加样式，很简单，代码如下，此处不解释：<br><code>ReactDOM.render(
+        &lt;div&gt;
+            &lt;p style={空格{
+                color:&quot;red&quot;,
+                fontSize:50
+            }空格}&gt;{ok==1?&quot;我很帅&quot;:&quot;我很有才华&quot;}&lt;/p&gt;
+        &lt;/div&gt;,
+        document.querySelector(&quot;#wrap&quot;)
+    )</code></p>
+<p>-JSX可以直接在模板输出JavaScript变量。如果这个变量是一个数组，会自动展开所有元素。是不是很给力？哈<br><code>var arr=[
+        &lt;h1&gt;你是风儿&lt;/h1&gt;,
+        &lt;h2&gt;我是沙&lt;/h2&gt;,
+        &lt;h3&gt;缠缠绵绵到天涯&lt;/h3&gt;
+    ];
+    ReactDOM.render(
+        &lt;div&gt;
+            {arr}
+        &lt;/div&gt;,
+        document.querySelector(&quot;#wrap&quot;)
+    )</code><br>咱们也可以利用数组的map属性来对其进行数据列表渲染：</p>
+<p><code>var arr=[&quot;你是风儿&quot;,&quot;我是沙&quot;,&quot;缠缠绵绵到天涯&quot;];
+    var lis=arr.map(function(v){
+        return &lt;h3&gt;{v}&lt;/h3&gt;
+    })
+    ReactDOM.render(
+        &lt;div&gt;
+            {lis}
+        &lt;/div&gt;,
+        document.querySelector(&quot;#wrap&quot;)
+    )</code></p>
+<p>-在react里面class应写成className，for 属性需要写成 htmlFor</p>
+<h3 id="4-state和props"><a href="#4-state和props" class="headerlink" title="4.state和props"></a>4.state和props</h3><p>-React 把组件看成是一个状态机（State Machines）。通过与用户的交互，实现不同状态，然后渲染 UI，让用户界面和数据保持一致。<br>React 里，只需更新组件的 state，然后根据新的 state 重新渲染用户界面（不要操作 DOM）。</p>
+<p>-state 和 props 主要的区别在于 props 是不可变的，而 state 可以根据与用户交互来改变。这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 props 来传递数据。</p>
+<h3 id="5-组件之间传值"><a href="#5-组件之间传值" class="headerlink" title="5.组件之间传值"></a>5.组件之间传值</h3><p>-react为了数据不混乱，数据传输只能父组件传给子组件，子组件不能传给父组件。</p>
+<p>-子组件不能改父组件传来的数据。</p>
+<p>`<br>//父组件发送</p>
+<p><fathercomponent content="{data}/"><br>//子组件接受</fathercomponent></p>
+<p><div> {this.props.content} </div><br>`</p>
+<h3 id="6-React-事件处理"><a href="#6-React-事件处理" class="headerlink" title="6.React 事件处理"></a>6.React 事件处理</h3><p>-React 元素的事件处理和 DOM 元素类似。但是有一点语法上的不同:<br>React 事件绑定属性的命名采用驼峰式写法，而不是小写。</p>
+<p>-如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM 元素的写法)</p>
+<p>`<br>function ActionLink() {<br>  function handleClick(e) {<br>    e.preventDefault();<br>    console.log(‘链接被点击’);<br>  }</p>
+<p>  return (<br>    <a href="#" onclick="{handleClick}"><br>      点我<br>    </a><br>  );<br>}<br>`</p>
+<p>-你必须谨慎对待 JSX 回调函数中的 this，类的方法默认是不会绑定 this 的。如果你忘记绑定 this.handleClick 并把它传入 onClick, 当你调用这个函数的时候 this 的值会是 undefined。两种解决方法<br>`<br>//可以在class声明中的constructor()函数中，使用：<br>this.handleClick = this.handleClick.bind(this);<br>//箭头函数</p>
+<p><div onclick="{()" ==""> this.handleClick()}&gt;<br>`</div></p>
+<p>-通常我们会为事件处理程序传递额外的参数。例如，若是 id 是你要删除那一行的 id，以下两种方式都可以向事件处理程序传递参数：</p>
+<p>`</p>
+<p><button onclick="{(e)" ==""> this.deleteRow(id, e)}&gt;Delete Row</button></p>
+<p><button onclick="{this.deleteRow.bind(this," id)}="">Delete Row</button><br>`</p>
+<h3 id="7-React-列表-amp-Keys"><a href="#7-React-列表-amp-Keys" class="headerlink" title="7.React 列表 &amp; Keys"></a>7.React 列表 &amp; Keys</h3><p>-使用 map() 方法遍历数组生成了一个 1 到 5 的数字列表:</p>
+<p><code>const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =&gt;
+  &lt;li key={number.toString()}&gt;
+    {number}
+  &lt;/li&gt;
+);</code></p>
+<p>-key应该是唯一的</p>
+<h3 id="8-React-组件-API"><a href="#8-React-组件-API" class="headerlink" title="8.React 组件 API"></a>8.React 组件 API</h3><p>设置状态：setState<br>替换状态：replaceState<br>设置属性：setProps<br>替换属性：replaceProps<br>强制更新：forceUpdate<br>获取DOM节点：findDOMNode</p>
+<p><code>handleClick() {
+    this.setState(function(state) {
+      return {clickCount: state.clickCount + 1};
+    });
+  }</code></p>
+<h3 id="9-生命周期函数"><a href="#9-生命周期函数" class="headerlink" title="9.生命周期函数"></a>9.生命周期函数</h3><p>-componentWillMount 在渲染前调用,在客户端也在服务端。</p>
+<p>-componentDidMount : 在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异步操作阻塞UI)。</p>
+<p>-componentWillReceiveProps 在组件接收到一个新的 prop (更新后)时被调用。这个方法在初始化render时不会被调用。</p>
+<p>-shouldComponentUpdate 返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不被调用。<br>可以在你确认不需要更新组件时使用。</p>
+<p>-componentWillUpdate在组件接收到新的props或者state但还没有render时被调用。在初始化时不会被调用。</p>
+<p>-componentDidUpdate 在组件完成更新后立即调用。在初始化时不会被调用。</p>
+<p>-componentWillUnmount在组件从 DOM 中移除之前立刻被调用</p>
+<h3 id="10-React-表单与事件"><a href="#10-React-表单与事件" class="headerlink" title="10.React 表单与事件"></a>10.React 表单与事件</h3><p>-HTML 表单元素与 React 中的其他 DOM 元素有所不同,因为表单元素生来就保留一些内部状态。</p>
+<p>-在 HTML 当中，像 <code>&lt;input&gt;, &lt;textarea&gt;, 和 &lt;select&gt;</code>这类表单元素会维持自身状态，并根据用户输入进行更新。但在React中，可变的状态通常保存在组件的状态属性中，并且只能用 setState() 方法进行更新。</p>
+<p>-一个简单的实例<br>在实例中我们设置了输入框 input 值 value = {this.state.data}。在输入框值发生变化时我们可以更新 state。我们可以使用 onChange 事件来监听 input 的变化，并修改 state。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class HelloMessage extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">      super(props);</span><br><span class="line">      this.state = &#123;value: &apos;Hello Runoob!&apos;&#125;;</span><br><span class="line">      this.handleChange = this.handleChange.bind(this);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  handleChange(event) &#123;</span><br><span class="line">    this.setState(&#123;value: event.target.value&#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    var value = this.state.value;</span><br><span class="line">    return &lt;div&gt;</span><br><span class="line">            &lt;input type=&quot;text&quot; value=&#123;value&#125; onChange=&#123;this.handleChange&#125; /&gt; </span><br><span class="line">            &lt;h4&gt;&#123;value&#125;&lt;/h4&gt;</span><br><span class="line">           &lt;/div&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;HelloMessage /&gt;,</span><br><span class="line">  document.getElementById(&apos;example&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h3 id="11-React-Refs"><a href="#11-React-Refs" class="headerlink" title="11.React Refs"></a>11.React Refs</h3><p>-React 支持一种非常特殊的属性 Ref ，你可以用来绑定到 render() 输出的任何组件上。这个特殊的属性允许你引用 render() 返回的相应的支撑实例（ backing instance ）。这样就可以确保在任何时间总是拿到正确的实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class MyComponent extends React.Component &#123;</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    // 使用原生的 DOM API 获取焦点</span><br><span class="line">    this.refs.myInput.focus();</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    //  当组件插入到 DOM 后，ref 属性添加一个组件的引用于到 this.refs</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; ref=&quot;myInput&quot; /&gt;</span><br><span class="line">        &lt;input</span><br><span class="line">          type=&quot;button&quot;</span><br><span class="line">          value=&quot;点我输入框获取焦点&quot;</span><br><span class="line">          onClick=&#123;this.handleClick.bind(this)&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;MyComponent /&gt;,</span><br><span class="line">  document.getElementById(&apos;example&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfb.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wx.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">总结</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/17/react一些底层知识/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/05/17/最近乱七八糟的事/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">最近乱七八糟的事</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是react-它的特点？"><span class="toc-number">1.</span> <span class="toc-text">1.什么是react?它的特点？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-工程建立和工程目录文件简介"><span class="toc-number">2.</span> <span class="toc-text">2.工程建立和工程目录文件简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSX语法"><span class="toc-number">3.</span> <span class="toc-text">3.JSX语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-state和props"><span class="toc-number">4.</span> <span class="toc-text">4.state和props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-组件之间传值"><span class="toc-number">5.</span> <span class="toc-text">5.组件之间传值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-React-事件处理"><span class="toc-number">6.</span> <span class="toc-text">6.React 事件处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-React-列表-amp-Keys"><span class="toc-number">7.</span> <span class="toc-text">7.React 列表 &amp; Keys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-React-组件-API"><span class="toc-number">8.</span> <span class="toc-text">8.React 组件 API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-生命周期函数"><span class="toc-number">9.</span> <span class="toc-text">9.生命周期函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-React-表单与事件"><span class="toc-number">10.</span> <span class="toc-text">10.React 表单与事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-React-Refs"><span class="toc-number">11.</span> <span class="toc-text">11.React Refs</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script src="https://cdnjs.loli.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            av:AV,
+            el: '.comment',
+            emoticon_url: 'https://qwerty-a.github.io.com/alu',
+            emoticon_list: ["��.png","�ڴ�.png","����.png","��Ѫ����.png","����.png","����.png"],
+            notify: notify,
+            verify: verify,
+            app_id: "DUcsuhSm4Ujtx2SA1oq0U4ng-gzGzoHsz",
+            app_key: "e1DlQMsEFdisLiukFm8c04af",
+            placeholder: "填写了邮箱我可以直接回复到你的邮箱哟~~~",
+            avatar:""
+        });
+    }
+</script>
+  </section>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -234,9 +495,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
