@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>指针数组与数组指针与指向指针的指针 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。 1.指针数组1.一个数组，里面元素都是指针。如：int *p[4]; 2.如何赋值？ 1234int a[3][4]=&amp;#123;&amp;#123;1,2,3,4&amp;#125;,&amp;#123;5,6,7,8&amp;#125;,&amp;#123;9,10,11,12&amp;#125;&amp;#125;;int *p[3">
+  <meta name="description" content="指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="指针数组与数组指针与指向指针的指针">
 <meta property="og:url" content="http://yoursite.com/2020/05/14/指针数组与数组指针与指向指针的指针/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。 1.指针数组1.一个数组，里面元素都是指针。如：int *p[4]; 2.如何赋值？ 1234int a[3][4]=&amp;#123;&amp;#123;1,2,3,4&amp;#125;,&amp;#123;5,6,7,8&amp;#125;,&amp;#123;9,10,11,12&amp;#125;&amp;#125;;int *p[3">
+<meta property="og:description" content="指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2020/05/15/QHkemUbORSvpdcq.jpg">
-<meta property="og:updated_time" content="2020-05-14T16:52:18.097Z">
+<meta property="og:updated_time" content="2020-05-14T16:54:05.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="指针数组与数组指针与指向指针的指针">
-<meta name="twitter:description" content="指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。 1.指针数组1.一个数组，里面元素都是指针。如：int *p[4]; 2.如何赋值？ 1234int a[3][4]=&amp;#123;&amp;#123;1,2,3,4&amp;#125;,&amp;#123;5,6,7,8&amp;#125;,&amp;#123;9,10,11,12&amp;#125;&amp;#125;;int *p[3">
+<meta name="twitter:description" content="指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。">
 <meta name="twitter:image" content="https://i.loli.net/2020/05/15/QHkemUbORSvpdcq.jpg">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
@@ -181,7 +181,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。</p>
+        <p>指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。<a id="more"></a></p>
 <h4 id="1-指针数组"><a href="#1-指针数组" class="headerlink" title="1.指针数组"></a>1.指针数组</h4><p>1.一个数组，里面元素都是指针。如：int *p[4];</p>
 <p>2.如何赋值？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a[3][4]=&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;&#125;;</span><br><span class="line">int *p[3];</span><br><span class="line"> </span><br><span class="line">for(int i=0;i&lt;3;i++) p[i]=a[i];</span><br></pre></td></tr></table></figure>
