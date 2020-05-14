@@ -160,6 +160,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-指针数组与数组指针与指向指针的指针" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/14/指针数组与数组指针与指向指针的指针/">指针数组与数组指针与指向指针的指针</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/14/指针数组与数组指针与指向指针的指针/" class="archive-article-date">
+  	<time datetime="2020-05-14T15:57:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。</p>
+<h4 id="1-指针数组"><a href="#1-指针数组" class="headerlink" title="1.指针数组"></a>1.指针数组</h4><p>1.一个数组，里面元素都是指针。如：int *p[4];</p>
+<p>2.如何赋值？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a[3][4]=&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;&#125;;</span><br><span class="line">int *p[3];</span><br><span class="line"> </span><br><span class="line">for(int i=0;i&lt;3;i++) p[i]=a[i];</span><br></pre></td></tr></table></figure>
+<p>3.如何取值？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a[i][j]=*(p[i]+j)或p[i][j]</span><br><span class="line">原理：p[i]相当于获取到a数组第i行的首地址</span><br></pre></td></tr></table></figure>
+<h4 id="2-数组指针"><a href="#2-数组指针" class="headerlink" title="2.数组指针"></a>2.数组指针</h4><p>1.如何赋值？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a[3][4]=&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;&#125;;</span><br><span class="line">int (*p)[4]=a;</span><br></pre></td></tr></table></figure>
+<p>2.如何取值？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a[i][j]=*(*(p+i)+j)或p[i][j]</span><br><span class="line">原理：p就是一个指向指针的指针。如上面那个例子：p就是指向了第一个含四个元素的数组的首地址，也就是p指向a的首地址也就是a[0]，*p指向a[0]的首地址也就是a[0][0]，要访问a[0][0]，就是*(*p)了。p+i即指向了数组a的第i行，*(p+i)就是该行的首地址，也就是指向了a[i][0]，而对于a[i]这个一维数组的第j个元素当然就是a[i]+j，也就是*(p+i)+j了，因此，a[i][j]的地址就是*(p+i)+j，a[i][j]=*(*(p+i)+j)。</span><br></pre></td></tr></table></figure>
+<h4 id="3-如何动态分配数组？"><a href="#3-如何动态分配数组？" class="headerlink" title="3.如何动态分配数组？"></a>3.如何动态分配数组？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int **p = new int*[m];　　//m行n列型</span><br><span class="line">for (i = 0; i &lt; m; ++i) &#123;</span><br><span class="line">　　p[i] = new int[n];</span><br><span class="line">　　for (j = 0; j &lt; n; ++j)</span><br><span class="line">　　scanf (&quot;%d&quot;,&amp;p[i][j]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-程序其实很简单，就是有点掉头发"><a href="#4-程序其实很简单，就是有点掉头发" class="headerlink" title="4.程序其实很简单，就是有点掉头发"></a>4.程序其实很简单，就是有点掉头发</h4><p><img src="https://i.loli.net/2020/05/15/QHkemUbORSvpdcq.jpg" alt="img"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/14/指针数组与数组指针与指向指针的指针/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-各种排序总结" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -826,80 +911,6 @@
 
 
   
-    <article id="post-以史为鉴：前端开发的四个时代" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/21/以史为鉴：前端开发的四个时代/">以史为鉴：前端开发的四个时代</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/21/以史为鉴：前端开发的四个时代/" class="archive-article-date">
-  	<time datetime="2019-03-21T10:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在前端整体进入组件化开发时代后，手写各种 UI 组件成为了许多前端工程师入门后的第一课。而对于工作了几年的资深工程师来说，手写组件已经不再是问题，但对于如何帮助团队提升整体开发效率以及个人接下来的技术成长方向却开始变得非常迷茫。
-        
-      
-
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/21/以史为鉴：前端开发的四个时代/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1020,15 +1031,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1044,11 +1047,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">羽毛球</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">

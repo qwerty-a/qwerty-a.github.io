@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>react-transition-group | qwerty-a&#39;s blog</title>
+  <title>指针数组与数组指针与指向指针的指针 | qwerty-a&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="react-transition-group是react提供的一个官网提供的动画过度库。通过它，可以方便的添加动画。">
-<meta name="keywords" content="react">
+  <meta name="description" content="指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。 1.指针数组1.一个数组，里面元素都是指针。如：int *p[4]; 2.如何赋值？ 1234int a[3][4]=&amp;#123;&amp;#123;1,2,3,4&amp;#125;,&amp;#123;5,6,7,8&amp;#125;,&amp;#123;9,10,11,12&amp;#125;&amp;#125;;int *p[3">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react-transition-group">
-<meta property="og:url" content="http://yoursite.com/2019/06/03/react-transition-group/index.html">
+<meta property="og:title" content="指针数组与数组指针与指向指针的指针">
+<meta property="og:url" content="http://yoursite.com/2020/05/14/指针数组与数组指针与指向指针的指针/index.html">
 <meta property="og:site_name" content="qwerty-a&#39;s blog">
-<meta property="og:description" content="react-transition-group是react提供的一个官网提供的动画过度库。通过它，可以方便的添加动画。">
+<meta property="og:description" content="指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。 1.指针数组1.一个数组，里面元素都是指针。如：int *p[4]; 2.如何赋值？ 1234int a[3][4]=&amp;#123;&amp;#123;1,2,3,4&amp;#125;,&amp;#123;5,6,7,8&amp;#125;,&amp;#123;9,10,11,12&amp;#125;&amp;#125;;int *p[3">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-03T13:28:10.496Z">
+<meta property="og:image" content="https://i.loli.net/2020/05/15/QHkemUbORSvpdcq.jpg">
+<meta property="og:updated_time" content="2020-05-14T16:52:18.097Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react-transition-group">
-<meta name="twitter:description" content="react-transition-group是react提供的一个官网提供的动画过度库。通过它，可以方便的添加动画。">
+<meta name="twitter:title" content="指针数组与数组指针与指向指针的指针">
+<meta name="twitter:description" content="指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。 1.指针数组1.一个数组，里面元素都是指针。如：int *p[4]; 2.如何赋值？ 1234int a[3][4]=&amp;#123;&amp;#123;1,2,3,4&amp;#125;,&amp;#123;5,6,7,8&amp;#125;,&amp;#123;9,10,11,12&amp;#125;&amp;#125;;int *p[3">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/15/QHkemUbORSvpdcq.jpg">
   
     <link rel="alternative" href="/atom.xml" title="qwerty-a&#39;s blog" type="application/atom+xml">
   
@@ -159,37 +161,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react-transition-group" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-指针数组与数组指针与指向指针的指针" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      react-transition-group
+      指针数组与数组指针与指向指针的指针
     </h1>
   
 
         
-        <a href="/2019/06/03/react-transition-group/" class="archive-article-date">
-  	<time datetime="2019-06-03T09:05:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-03</time>
+        <a href="/2020/05/14/指针数组与数组指针与指向指针的指针/" class="archive-article-date">
+  	<time datetime="2020-05-14T15:57:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>react-transition-group是react提供的一个官网提供的动画过度库。通过它，可以方便的添加动画。<a id="more"></a></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-transition-group --save</span><br></pre></td></tr></table></figure>
-<h3 id="Transition"><a href="#Transition" class="headerlink" title="Transition"></a>Transition</h3><p>过渡组件(Transiton)允许您用一个简单的声明性API描述随着时间的推移从一个组件状态到另一个组件状态的转换。最常用的是用来动画一个组件的安装和卸载，但也可以用来描述在适当的过渡状态。默认情况下，该组件不会更改其呈现的组件的行为，它只跟踪组件的“进入”和“退出”的状态。由你来为这些状态定义效果。（翻译）<br>实际的情况就是你如果只写这个组件是没有任何的效果的，就和你写一个div一样。所以你需要给他们赋予一些参数才可以。例如下面这个例子</p>
-<p>组件里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import &#123; CSSTransition &#125; from &apos;react-transition-group&apos;;</span><br><span class="line"></span><br><span class="line">&lt;CSSTransition</span><br><span class="line">			in=&#123;focused&#125;//focused状态为trur or false</span><br><span class="line">			timeout=&#123;200&#125;//动画播放时间</span><br><span class="line">			classNames=&quot;slide&quot;//动画的名字</span><br><span class="line">&gt;</span><br><span class="line">				&lt;NavSearch</span><br><span class="line">				   className=&#123;focused ? &apos;focused&apos;:&apos;&apos;&#125;</span><br><span class="line">				   onFocus=&#123;()=&gt;handleInputFocus(list)&#125;</span><br><span class="line">				   onBlur=&#123;handleInputBlur&#125;</span><br><span class="line">				&gt;&lt;/NavSearch&gt;</span><br><span class="line">&lt;/CSSTransition&gt;</span><br></pre></td></tr></table></figure></p>
-<p>css里面写动画的样式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">export const NavSearch=styled.input`</span><br><span class="line">	width: 160px;</span><br><span class="line">	height: 38px;</span><br><span class="line">	pading: 0 30px 0 20px;</span><br><span class="line">	margin-top: 9px;</span><br><span class="line">    margin-left: 20px;</span><br><span class="line">	box-sizing: border-box;</span><br><span class="line">	border: none;</span><br><span class="line">	outline: none;</span><br><span class="line">	border-radius: 19px;</span><br><span class="line">	background: #eee;</span><br><span class="line">    font-size:14px;</span><br><span class="line">    color: #666;</span><br><span class="line">    &amp;::placeholder&#123;</span><br><span class="line">       color: #999;</span><br><span class="line">    &#125;</span><br><span class="line">    &amp;.focused&#123;</span><br><span class="line">       width: 240px;</span><br><span class="line">    &#125;</span><br><span class="line">    &amp;.slide-enter&#123;</span><br><span class="line">        transition: all .3s ease-out;</span><br><span class="line">    &#125;</span><br><span class="line">	&amp;.slide-enter-active&#123;</span><br><span class="line">        width: 240px;</span><br><span class="line">	&#125;</span><br><span class="line">	&amp;.slide-exit&#123;</span><br><span class="line">		transition: all .3s ease-out;</span><br><span class="line">	&#125;</span><br><span class="line">	&amp;.slide-exit-active&#123;</span><br><span class="line">		width: 160px;</span><br><span class="line">	&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-<h3 id="TransitionGroup"><a href="#TransitionGroup" class="headerlink" title="TransitionGroup"></a>TransitionGroup</h3><p>一看group就知道肯定是列表形态的动画了！但是看了官网后知道，TransitionGroup不提供任何形式的动画，具体的动画取决与你包裹的Transition || CSSTransition的动画，所以你可以在列表里面做出不同类型的动画出来。下面来看一个例子</p>
-<p>组件里面:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">        &lt;TransitionGroup className=&quot;todo-list&quot;&gt;</span><br><span class="line">          &#123;items.map((&#123; id, text &#125;) =&gt; (</span><br><span class="line">            &lt;CSSTransition</span><br><span class="line">              key=&#123;id&#125;</span><br><span class="line">              timeout=&#123;500&#125;</span><br><span class="line">              classNames=&quot;fade&quot;</span><br><span class="line">            &gt;</span><br><span class="line">              &lt;div&gt;</span><br><span class="line">                &lt;Button</span><br><span class="line">                  onClick=&#123;() =&gt; &#123;</span><br><span class="line">                    this.setState(state =&gt; (&#123;</span><br><span class="line">                      items: state.items.filter(</span><br><span class="line">                        item =&gt; item.id !== id</span><br><span class="line">                      ),</span><br><span class="line">                    &#125;));</span><br><span class="line">                  &#125;&#125;</span><br><span class="line">                &gt;</span><br><span class="line">                  &amp;times;</span><br><span class="line">                &lt;/Button&gt;</span><br><span class="line">                &#123;text&#125;</span><br><span class="line">              &lt;/div&gt;</span><br><span class="line">            &lt;/CSSTransition&gt;</span><br><span class="line">          ))&#125;</span><br><span class="line">        &lt;/TransitionGroup&gt;</span><br></pre></td></tr></table></figure>
-<p>css里面:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.fade-enter &#123;</span><br><span class="line">    opacity: 0.01;</span><br><span class="line">  &#125;</span><br><span class="line">  .fade-enter-active &#123;</span><br><span class="line">    opacity: 1;</span><br><span class="line">    transition: opacity 500ms ease-in;</span><br><span class="line">  &#125;</span><br><span class="line">  .fade-exit &#123;</span><br><span class="line">    opacity: 1;</span><br><span class="line">  &#125;</span><br><span class="line">  .fade-exit-active &#123;</span><br><span class="line">    opacity: 0.01;</span><br><span class="line">    transition: opacity 500ms ease-in;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+        <p>指针是学习c语言和c++的一个噩梦，其中指针数组与数组指针与指向指针的指针更是绕的无法，所以在这里面简单总结一下。</p>
+<h4 id="1-指针数组"><a href="#1-指针数组" class="headerlink" title="1.指针数组"></a>1.指针数组</h4><p>1.一个数组，里面元素都是指针。如：int *p[4];</p>
+<p>2.如何赋值？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a[3][4]=&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;&#125;;</span><br><span class="line">int *p[3];</span><br><span class="line"> </span><br><span class="line">for(int i=0;i&lt;3;i++) p[i]=a[i];</span><br></pre></td></tr></table></figure>
+<p>3.如何取值？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a[i][j]=*(p[i]+j)或p[i][j]</span><br><span class="line">原理：p[i]相当于获取到a数组第i行的首地址</span><br></pre></td></tr></table></figure>
+<h4 id="2-数组指针"><a href="#2-数组指针" class="headerlink" title="2.数组指针"></a>2.数组指针</h4><p>1.如何赋值？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a[3][4]=&#123;&#123;1,2,3,4&#125;,&#123;5,6,7,8&#125;,&#123;9,10,11,12&#125;&#125;;</span><br><span class="line">int (*p)[4]=a;</span><br></pre></td></tr></table></figure>
+<p>2.如何取值？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a[i][j]=*(*(p+i)+j)或p[i][j]</span><br><span class="line">原理：p就是一个指向指针的指针。如上面那个例子：p就是指向了第一个含四个元素的数组的首地址，也就是p指向a的首地址也就是a[0]，*p指向a[0]的首地址也就是a[0][0]，要访问a[0][0]，就是*(*p)了。p+i即指向了数组a的第i行，*(p+i)就是该行的首地址，也就是指向了a[i][0]，而对于a[i]这个一维数组的第j个元素当然就是a[i]+j，也就是*(p+i)+j了，因此，a[i][j]的地址就是*(p+i)+j，a[i][j]=*(*(p+i)+j)。</span><br></pre></td></tr></table></figure>
+<h4 id="3-如何动态分配数组？"><a href="#3-如何动态分配数组？" class="headerlink" title="3.如何动态分配数组？"></a>3.如何动态分配数组？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int **p = new int*[m];　　//m行n列型</span><br><span class="line">for (i = 0; i &lt; m; ++i) &#123;</span><br><span class="line">　　p[i] = new int[n];</span><br><span class="line">　　for (j = 0; j &lt; n; ++j)</span><br><span class="line">　　scanf (&quot;%d&quot;,&amp;p[i][j]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-程序其实很简单，就是有点掉头发"><a href="#4-程序其实很简单，就是有点掉头发" class="headerlink" title="4.程序其实很简单，就是有点掉头发"></a>4.程序其实很简单，就是有点掉头发</h4><p><img src="https://i.loli.net/2020/05/15/QHkemUbORSvpdcq.jpg" alt="img"></p>
+
       
 
       
@@ -233,7 +237,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -289,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/03/react-transition-group/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/14/指针数组与数组指针与指向指针的指针/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -303,18 +307,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/03/react-router-dom/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          react-router-dom
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/03/style-components/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">styled-components</div>
+    <a href="/2020/05/12/各种排序总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">各种排序总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -341,7 +336,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Transition"><span class="toc-number">2.</span> <span class="toc-text">Transition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TransitionGroup"><span class="toc-number">3.</span> <span class="toc-text">TransitionGroup</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-指针数组"><span class="toc-number">1.</span> <span class="toc-text">1.指针数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-数组指针"><span class="toc-number">2.</span> <span class="toc-text">2.数组指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-如何动态分配数组？"><span class="toc-number">3.</span> <span class="toc-text">3.如何动态分配数组？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-程序其实很简单，就是有点掉头发"><span class="toc-number">4.</span> <span class="toc-text">4.程序其实很简单，就是有点掉头发</span></a></li></ol>
                     </div>
                 </span>
             </div>
